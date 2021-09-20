@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- tone.jsインポート [#2](https://github.com/ryo-i/next-app-started/issues/2)
+- ページ上で音を鳴らすテスト [#2](https://github.com/ryo-i/next-app-started/issues/2)
 
 ## 詳細（ブログ）
 

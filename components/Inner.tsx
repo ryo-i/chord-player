@@ -1,7 +1,7 @@
 import React, { useState, useEffect }  from 'react';
 import styled from 'styled-components';
-import { hello } from '../modules/hello/hello';
 import { inner } from '../data/data.json';
+import * as Tone from 'tone';
 
 
 // CSS in JS
@@ -17,26 +17,25 @@ function Inner() {
   const [text, setText] = useState('へんじがない、ただのしかばねのようだ。');
 
   useEffect(() => {
-    hello();
+    // ページ読み込み時の処理
   });
+
+  // Tone.js Test
+  const toneJsTest = () => {
+    //create a synth and connect it to the main output (your speakers)
+    const synth = new Tone.Synth().toDestination();
+
+    //play a middle 'C' for the duration of an 8th note
+    synth.triggerAttackRelease("C4", "8n");
+  };
 
   // JSX
   return (
     <>
-      {
-        // inner.length >= 5 // test
-        inner.length >= 1
-          ? inner.map((inner, index) =>
-            <section key={ index }>
-              <H2>{ inner.title }</H2>
-              <p dangerouslySetInnerHTML={{ __html: inner.text }}></p>
-            </section>
-          )
-          : <section>
-              <h2>{ title }</h2>
-              <p>{ text }</p>
-          </section>
-      }
+      <section>
+            <h2>Tone.jsテスト</h2>
+            <button onClick={toneJsTest}>音を鳴らす♪</button>
+      </section>
     </>
   );
 }
