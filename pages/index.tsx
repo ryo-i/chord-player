@@ -22,8 +22,6 @@ function Home() {
       </Head>
       <Header />
       <main>
-        <h1>{ pageTitle }</h1>
-        <p dangerouslySetInnerHTML={{ __html: pageText }}></p>
         <Inner />
       </main>
       <Footer />
