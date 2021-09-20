@@ -1,10 +1,10 @@
 {
     "head": {
-        "url": "https://next-app-started.vercel.app/"
+        "url": "https://cord-player.vercel.app/"
     },
     "header": {
-        "title":"Nextアプリスターターキット",
-        "text": "Next.js + TypeScript + CSS in JS環境"
+        "title":"コードプレイヤー",
+        "text": "いろいろなコード（和音）を鍵盤で鳴らして構成音も確認できます。"
     },
     "main": {
         "title":"メインページです",
