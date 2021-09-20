@@ -16,36 +16,31 @@ const BeadPlayer = styled.section`
     border: 1px solid #ccc;
     padding: 10px 10px 0;
     text-align: left;
-  }
-
-  form dl {
-    padding: 5px 0 0;
-    display: flex;
-    margin: 0;
-  }
-
-  form dl:not(:last-child) {
-    border-bottom: 1px solid #eee;
-  }
-
-  form dt {
-    font-weight: bold;
-    width: 15%;
-  }
-
-  form dd {
-    margin: 0;
-    display: inline-block;
-    width: 85%;
+    dl {
+      padding: 5px 0 0;
+      display: flex;
+      margin: 0;
+      :not(:last-child) {
+        border-bottom: 1px solid #eee;
+      }
+    }
+    dt {
+      font-weight: bold;
+      width: 15%;
+    }
+    dd {
+      margin: 0;
+      display: inline-block;
+      width: 85%;
+    }
   }
 
   label {
     margin: 0 10px 10px 0;
     display: inline-block;
-  }
-
-  label:hover {
-    cursor: pointer;
+    :hover {
+      cursor: pointer;
+    }
   }
 
   #piano {
@@ -66,11 +61,6 @@ const BeadPlayer = styled.section`
     display: inline-block;
   }
 
-  .w_key:hover,
-  .b_key:hover {
-    opacity: 0.7;
-  }
-
   .b_key {
     position: absolute;
     z-index: 10;
@@ -84,6 +74,11 @@ const BeadPlayer = styled.section`
     height: 75px;
     text-align: center;
     display: inline-block;
+  }
+
+  .w_key:hover,
+  .b_key:hover {
+    opacity: 0.7;
   }
 
   #code_type_text {
