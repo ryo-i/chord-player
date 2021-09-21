@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- CSSをSass記法で整理 [#3](https://github.com/ryo-i/next-app-started/issues/3)
+- inputタグのイベントをonchange -> onChangeに [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
 
