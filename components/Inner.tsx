@@ -5,7 +5,7 @@ import * as Tone from 'tone';
 
 
 // CSS in JS
-const BeadPlayer = styled.section`
+const CoadPlayer = styled.section`
   h2, #code_type, #code_type_text {
     text-align: center;
   }
@@ -95,8 +95,9 @@ const BeadPlayer = styled.section`
 // Component
 function Inner() {
   // Hooks
-  const [title, setTitle] = useState('内容が無いよう');
-  const [text, setText] = useState('へんじがない、ただのしかばねのようだ。');
+  const [codeTypeText, setCodeTypeText] = useState('ルート(R)');
+  const [codeKeysText, setCodeKeysText] = useState('1');
+  const [chords, setChords] = useState([]);
 
   useEffect(() => {
     // ページ読み込み時の処理
@@ -112,10 +113,25 @@ function Inner() {
   };
 
   //DOM
-  const Key = document.querySelectorAll('#piano li');
-  const codeTypeText = document.querySelector('#code_type_text');
-  const codeType = document.getElementsByName("code_type");
-  const codeKeysText = document.querySelector('#code_keys_text');
+  // const Key = document.querySelectorAll('#piano li');
+  const Key = [
+    {id: "C4", className: "w_key", keyName: "C"},
+    {id: "Cs4", className: "b_key", keyName: ""},
+    {id: "D4", className: "w_key", keyName: "D"},
+    {id: "Ds4", className: "b_key", keyName: ""},
+    {id: "E4", className: "w_key", keyName: "E"},
+    {id: "F4", className: "w_key", keyName: "F"},
+    {id: "Fs4", className: "b_key", keyName: ""},
+    {id: "G4", className: "w_key", keyName: "G"},
+    {id: "Gs4", className: "b_key", keyName: ""},
+    {id: "A4", className: "w_key", keyName: "A"},
+    {id: "As4", className: "b_key", keyName: ""},
+    {id: "B4", className: "w_key", keyName: "B"},
+    {id: "C5", className: "w_key", keyName: "C"}
+  ];
+  // const codeTypeText = document.querySelector('#code_type_text');
+  // const codeType = document.getElementsByName("code_type");
+  // const codeKeysText = document.querySelector('#code_keys_text');
 
   //音階
   var scale　= [
@@ -198,73 +214,80 @@ function Inner() {
   ];
 
   //和音入れ場
-  var chords = [];
+  let getChords = [];
 
   //和音
   for (let h = 0 ; h < codeTypes.length; h++ ) {
-    chords.push( [] );
+    getChords.push( [] );
     for (let i = 0 ; i < Key.length; i++ ) {
-      chords[h].push( [] );
+      getChords[h].push( [] );
       for (var  j = 0; j < codeTypes[h]['codeKeys'].length; j++){
         const nmb = scale[i+codeTypes[h]['codeKeys'][j]];
-        chords[h][i].push(nmb);
+        getChords[h][i].push(nmb);
       }
     }
   }
 
-  //コードタイプ設定
-    function codeTypeSelect() {
-      for(let i = 0; i < codeType.length; i++){
-        if(codeType[i].checked) {
-          const CodeTypeValue = codeType[i].value;
-          codeTypeText.innerHTML = CodeTypeValue;
-          const CodeKyesValue = codeTypes[i].codeKeys;
-          codeKeysText.innerHTML = '構成音:' +  CodeKyesValue;
-          return chords[i];
-        }
-      }
-    }
+  console.log(getChords);
+  // setChords(getChords);
 
-  codeTypeSelect();
+  //コードタイプ設定
+  function codeTypeSelect(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log('codeTypeSelect', e);
+    /* for(let i = 0; i < codeType.length; i++){
+      if(codeType[i].checked) {
+        const CodeTypeValue = codeType[i].value;
+        codeTypeText.innerHTML = CodeTypeValue;
+        const CodeKyesValue = codeTypes[i].codeKeys;
+        codeKeysText.innerHTML = '構成音:' +  CodeKyesValue;
+        return chords[i];
+      }
+    } */
+  }
+
+  // codeTypeSelect();
 
   //シンセ生成
-  var synth = new Tone.PolySynth().toMaster();
+  // var synth = new Tone.PolySynth().toMaster();
 
   //イベントリスナ
-  for (let i = 0; i < Key.length; i++) {
-  (function(i) {
-    Key[i].addEventListener('click', function () {
-    //チェックされているコードタイプを確認
-    var seletcCords = codeTypeSelect();
-    //メジャーコードが4分音符の長さ鳴る
-    synth.triggerAttackRelease(seletcCords[i], '4n');
-    }, false);
-  })(i);
+  function clickKey(e) {
+    console.log('clickKey', e);
+    /* for (let i = 0; i < Key.length; i++) {
+      (function(i) {
+        Key[i].addEventListener('click', function () {
+        //チェックされているコードタイプを確認
+        var seletcCords = codeTypeSelect();
+        //メジャーコードが4分音符の長さ鳴る
+        synth.triggerAttackRelease(seletcCords[i], '4n');
+        }, false);
+      })(i);
+    } */
   }
 
   // JSX
   return (
     <>
-      <BeadPlayer>
+      <CoadPlayer>
         <h2>和音鍵盤</h2>
         <ul id="piano">
-          <li id="C4" className="w_key" onClick={toneJsTest}>C</li>
-          <li id="Cs4" className="b_key"></li>
-          <li id="D4" className="w_key">D</li>
-          <li id="Ds4" className="b_key"></li>
-          <li id="E4" className="w_key">E</li>
-          <li id="F4" className="w_key">F</li>
-          <li id="Fs4" className="b_key"></li>
-          <li id="G4" className="w_key">G</li>
-          <li id="Gs4" className="b_key"></li>
-          <li id="A4" className="w_key">A</li>
-          <li id="As4" className="b_key"></li>
-          <li id="B4" className="w_key">B</li>
-          <li id="C5" className="w_key">C</li>
+          <li id="C4" className="w_key" onClick={clickKey}>C</li>
+          <li id="Cs4" className="b_key" onClick={clickKey}></li>
+          <li id="D4" className="w_key" onClick={clickKey}>D</li>
+          <li id="Ds4" className="b_key" onClick={clickKey}></li>
+          <li id="E4" className="w_key" onClick={clickKey}>E</li>
+          <li id="F4" className="w_key" onClick={clickKey}>F</li>
+          <li id="Fs4" className="b_key" onClick={clickKey}></li>
+          <li id="G4" className="w_key" onClick={clickKey}>G</li>
+          <li id="Gs4" className="b_key" onClick={clickKey}></li>
+          <li id="A4" className="w_key" onClick={clickKey}>A</li>
+          <li id="As4" className="b_key" onClick={clickKey}></li>
+          <li id="B4" className="w_key" onClick={clickKey}>B</li>
+          <li id="C5" className="w_key" onClick={clickKey}>C</li>
         </ul>
         <div id="code_type">
-          <p id="code_type_text"></p>
-          <p id="code_keys_text"></p>
+          <p id="code_type_text">{codeTypeText}</p>
+          <p id="code_keys_text">構成音:{codeKeysText}</p>
           <form name="code_types" className="">
             <dl>
               <dt>根音</dt>
@@ -318,7 +341,7 @@ function Inner() {
             </dl>
           </form>
         </div>
-      </BeadPlayer>
+      </CoadPlayer>
     </>
   );
 }

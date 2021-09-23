@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- CodePen版のJSコードを移植 [#3](https://github.com/ryo-i/next-app-started/issues/3)
+- エラーが生じている部分をコメントアウト [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
 
