@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- エラーが生じている部分をコメントアウト [#3](https://github.com/ryo-i/next-app-started/issues/3)
+- 鍵盤 -> buttonタグ、id -> value、's' -> '#' [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
 

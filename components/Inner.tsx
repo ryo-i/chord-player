@@ -252,7 +252,8 @@ function Inner() {
 
   //イベントリスナ
   function clickKey(e) {
-    console.log('clickKey', e);
+    console.log('value', e.target.value);
+    toneJsTest();
     /* for (let i = 0; i < Key.length; i++) {
       (function(i) {
         Key[i].addEventListener('click', function () {
@@ -270,21 +271,21 @@ function Inner() {
     <>
       <CoadPlayer>
         <h2>和音鍵盤</h2>
-        <ul id="piano">
-          <li id="C4" className="w_key" onClick={clickKey}>C</li>
-          <li id="Cs4" className="b_key" onClick={clickKey}></li>
-          <li id="D4" className="w_key" onClick={clickKey}>D</li>
-          <li id="Ds4" className="b_key" onClick={clickKey}></li>
-          <li id="E4" className="w_key" onClick={clickKey}>E</li>
-          <li id="F4" className="w_key" onClick={clickKey}>F</li>
-          <li id="Fs4" className="b_key" onClick={clickKey}></li>
-          <li id="G4" className="w_key" onClick={clickKey}>G</li>
-          <li id="Gs4" className="b_key" onClick={clickKey}></li>
-          <li id="A4" className="w_key" onClick={clickKey}>A</li>
-          <li id="As4" className="b_key" onClick={clickKey}></li>
-          <li id="B4" className="w_key" onClick={clickKey}>B</li>
-          <li id="C5" className="w_key" onClick={clickKey}>C</li>
-        </ul>
+        <div id="piano">
+          <button value="C4" className="w_key" onClick={clickKey}>C</button>
+          <button value="C#4" className="b_key" onClick={clickKey}></button>
+          <button value="D4" className="w_key" onClick={clickKey}>D</button>
+          <button value="D#4" className="b_key" onClick={clickKey}></button>
+          <button value="E4" className="w_key" onClick={clickKey}>E</button>
+          <button value="F4" className="w_key" onClick={clickKey}>F</button>
+          <button value="F#4" className="b_key" onClick={clickKey}></button>
+          <button value="G4" className="w_key" onClick={clickKey}>G</button>
+          <button value="G#4" className="b_key" onClick={clickKey}></button>
+          <button value="A4" className="w_key" onClick={clickKey}>A</button>
+          <button value="A#4" className="b_key" onClick={clickKey}></button>
+          <button value="B4" className="w_key" onClick={clickKey}>B</button>
+          <button value="C5" className="w_key" onClick={clickKey}>C</button>
+        </div>
         <div id="code_type">
           <p id="code_type_text">{codeTypeText}</p>
           <p id="code_keys_text">構成音:{codeKeysText}</p>
