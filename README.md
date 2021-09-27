@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- 鍵盤 -> buttonタグ、id -> value、's' -> '#' [#3](https://github.com/ryo-i/next-app-started/issues/3)
+- cordのvalueを統一 -> consoleに表示 [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
 

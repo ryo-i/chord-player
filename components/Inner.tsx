@@ -43,7 +43,7 @@ const CoadPlayer = styled.section`
     }
   }
 
-  #piano {
+  #key {
     background: #333;
     padding: 10px;
     width: 300px;
@@ -95,8 +95,9 @@ const CoadPlayer = styled.section`
 // Component
 function Inner() {
   // Hooks
-  const [codeTypeText, setCodeTypeText] = useState('ルート(R)');
-  const [codeKeysText, setCodeKeysText] = useState('1');
+  const [codeValue, setCodeValue] = useState('ルート');
+  const [codeName, setCodeName] = useState('R');
+  const [codeKeys, setCodeKeys] = useState('1');
   const [chords, setChords] = useState([]);
 
   useEffect(() => {
@@ -147,70 +148,156 @@ function Inner() {
 
   //コードタイプ
   var codeTypes = [
-      //ルート音
-      {'codeName': '(R)',
-          'codeKeys': [1]},
-      {'codeName': '(5)',
-          'codeKeys': [1,8]},
-      //三和音
-      {'codeName': '(M)',
-          'codeKeys': [1,5,8]},
-      {'codeName': 'm',
-          'codeKeys': [1,4,8]},
-      {'codeName': 'dim',
-          'codeKeys': [1,4,7]},
-      {'codeName': 'aug',
-          'codeKeys': [1,5,9]},
-      {'codeName': 'sus4',
-          'codeKeys': [1,6,8]},
-      //四和音
-      {'codeName': 'M7',
-          'codeKeys': [1,5,8,12]},
-      {'codeName': '7',
-          'codeKeys': [1,5,8,11]},
-      {'codeName': 'mM7',
-          'codeKeys': [1,4,8,12]},
-      {'codeName': 'm7',
-          'codeKeys': [1,4,8,11]},
-      {'codeName': 'm7(-5)',
-          'codeKeys': [1,4,7,11]},
-      {'codeName': 'dim7',
-          'codeKeys': [1,4,7,10]},
-      {'codeName': 'augM7',
-          'codeKeys': [1,5,9,12]},
-      {'codeName': 'aug7',
-          'codeKeys': [1,5,9,11]},
-      {'codeName': 'M7sus4',
-          'codeKeys': [1,6,8,12]},
-      {'codeName': '7sus4',
-          'codeKeys': [1,6,8,11]},
-      {'codeName': '6',
-          'codeKeys': [1,5,8,10]},
-      {'codeName': 'm6',
-          'codeKeys': [1,4,8,10]},
-      //五和音
-      {'codeName': 'M9',
-          'codeKeys': [1,5,8,12,15]},
-      {'codeName': '9',
-          'codeKeys': [1,5,8,11,15]},
-      {'codeName': '7(-9)',
-          'codeKeys': [1,5,8,11,14]},
-      {'codeName': '7(+9)',
-          'codeKeys': [1,5,8,11,16]},
-      {'codeName': 'm7(11)',
-          'codeKeys': [1,4,8,11,18]},
-      {'codeName': '7(+11)',
-          'codeKeys': [1,5,8,11,19]},
-      {'codeName': 'M7(13)',
-          'codeKeys': [1,5,8,12,22]},
-      {'codeName': '7(13)',
-          'codeKeys': [1,5,8,11,22]},
-      {'codeName': '7(-13)',
-          'codeKeys': [1,5,8,11,21]},
-      {'codeName': '69',
-          'codeKeys': [1,5,8,10,15]},
-      {'codeName': 'm69',
-          'codeKeys': [1,4,8,10,15]},
+      {
+        'codeValue': 'ルート',
+        'codeName': 'R',
+        'codeKeys': [1]
+      },
+      {
+        'codeValue': 'パワーコード',
+        'codeName': '5',
+        'codeKeys': [1,8]
+      },
+      {
+        'codeValue': 'メジャー',
+        'codeName': 'M',
+        'codeKeys': [1,5,8]
+      },
+      {
+        'codeValue': 'マイナー',
+        'codeName': 'm',
+        'codeKeys': [1,4,8]
+      },
+      {
+        'codeValue': 'ディミニッシュ',
+        'codeName': 'dim',
+        'codeKeys': [1,4,7]
+      },
+      {
+        'codeValue': 'オーギュメント',
+        'codeName': 'aug',
+        'codeKeys': [1,5,9]
+      },
+      {
+        'codeValue': 'サスペンデッド4th',
+        'codeName': 'sus4',
+        'codeKeys': [1,6,8]
+      },
+      {
+        'codeValue': 'メジャーセブンス',
+        'codeName': 'M7',
+        'codeKeys': [1,5,8,12]
+      },
+      {
+        'codeValue': 'セブンス',
+        'codeName': '7',
+        'codeKeys': [1,5,8,11]
+      },
+      {
+        'codeValue': 'マイナー・メジャー・セブンス',
+        'codeName': 'mM7',
+        'codeKeys': [1,4,8,12]
+      },
+      {
+        'codeValue': 'マイナー・セブンス',
+        'codeName': 'm7',
+        'codeKeys': [1,4,8,11]
+      },
+      {
+        'codeValue': 'マイナー・セブンス・フラット・ファイブ',
+        'codeName': 'm7(-5)',
+        'codeKeys': [1,4,7,11]
+      },
+      {
+        'codeValue': 'ディミニッシュ・セブンス',
+        'codeName': 'dim7',
+        'codeKeys': [1,4,7,10]
+      },
+      {
+        'codeValue': 'オーグメント・メジャー・セブンス',
+        'codeName': 'augM7',
+        'codeKeys': [1,5,9,12]
+      },
+      {
+        'codeValue': 'オーギュメント・セブンス',
+        'codeName': 'aug7',
+        'codeKeys': [1,5,9,11]
+      },
+      {
+        'codeValue': 'メジャー・セブンス・サスペンデッド4th',
+        'codeName': 'M7sus4',
+        'codeKeys': [1,6,8,12]
+      },
+      {
+        'codeValue': 'セブンス・サスペンデッド4th',
+        'codeName': '7sus4',
+        'codeKeys': [1,6,8,11]
+      },
+      {
+        'codeValue': 'シックスス',
+        'codeName': '6',
+        'codeKeys': [1,5,8,10]
+      },
+      {
+        'codeValue': 'マイナー・シックスス',
+        'codeName': 'm6',
+        'codeKeys': [1,4,8,10]
+      },
+      {
+        'codeValue': 'メジャーナインス',
+        'codeName': 'M9',
+        'codeKeys': [1,5,8,12,15]
+      },
+      {
+        'codeValue': 'ナインス',
+        'codeName': '9',
+        'codeKeys': [1,5,8,11,15]
+      },
+      {
+        'codeValue': 'セブンス・フラット・ナインス',
+        'codeName': '7(-9)',
+        'codeKeys': [1,5,8,11,14]
+      },
+      {
+        'codeValue': 'セブンス・シャープ・ナインス',
+        'codeName': '7(+9)',
+        'codeKeys': [1,5,8,11,16]
+      },
+      {
+        'codeValue': 'マイナー・セブンス・イレブンス',
+        'codeName': 'm7(11)',
+        'codeKeys': [1,4,8,11,18]
+      },
+      {
+        'codeValue': 'セブンス・シャープ・イレブンス',
+        'codeName': '7(+11)',
+        'codeKeys': [1,5,8,11,19]
+      },
+      {
+        'codeValue': 'メジャー・セブンス・サーティーンズ',
+        'codeName': 'M7(13)',
+        'codeKeys': [1,5,8,12,22]
+      },
+      {
+        'codeValue': 'セブンス・サーティーンズ',
+        'codeName': '7(13)',
+        'codeKeys': [1,5,8,11,22]
+      },
+      {
+        'codeValue': 'セブンス・フラット・サーティーンズ',
+        'codeName': '7(-13)',
+        'codeKeys': [1,5,8,11,21]
+      },
+      {
+        'codeValue': 'シックス・ナインス',
+        'codeName': '69',
+        'codeKeys': [1,5,8,10,15]
+      },
+      {
+        'codeValue': 'マイナー・シックス・ナインス',
+        'codeName': 'm69',
+        'codeKeys': [1,4,8,10,15]
+      },
   ];
 
   //和音入れ場
@@ -233,7 +320,7 @@ function Inner() {
 
   //コードタイプ設定
   function codeTypeSelect(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log('codeTypeSelect', e);
+    console.log('codeValue', e.target.value);
     /* for(let i = 0; i < codeType.length; i++){
       if(codeType[i].checked) {
         const CodeTypeValue = codeType[i].value;
@@ -252,7 +339,7 @@ function Inner() {
 
   //イベントリスナ
   function clickKey(e) {
-    console.log('value', e.target.value);
+    console.log('KeyValue', e.target.value);
     toneJsTest();
     /* for (let i = 0; i < Key.length; i++) {
       (function(i) {
@@ -271,7 +358,7 @@ function Inner() {
     <>
       <CoadPlayer>
         <h2>和音鍵盤</h2>
-        <div id="piano">
+        <div id="key">
           <button value="C4" className="w_key" onClick={clickKey}>C</button>
           <button value="C#4" className="b_key" onClick={clickKey}></button>
           <button value="D4" className="w_key" onClick={clickKey}>D</button>
@@ -287,57 +374,57 @@ function Inner() {
           <button value="C5" className="w_key" onClick={clickKey}>C</button>
         </div>
         <div id="code_type">
-          <p id="code_type_text">{codeTypeText}</p>
-          <p id="code_keys_text">構成音:{codeKeysText}</p>
+          <p id="code_type_text">{codeValue}({codeName})</p>
+          <p id="code_keys_text">構成音:{codeKeys}</p>
           <form name="code_types" className="">
             <dl>
               <dt>根音</dt>
               <dd>
-                <label><input type="radio" id="code_R" name="code_type" value="ルート(R)" onChange={codeTypeSelect} checked />(R)</label>
-                <label><input type="radio" id="code_5" name="code_type" value="パワーコード(5)" onChange={codeTypeSelect} />5</label>
+                <label><input type="radio" id="code_R" name="code_type" value="ルート" onChange={codeTypeSelect} defaultChecked />(R)</label>
+                <label><input type="radio" id="code_5" name="code_type" value="パワーコード" onChange={codeTypeSelect} />5</label>
               </dd>
             </dl>
             <dl>
               <dt>三和音</dt>
               <dd>
-                <label><input type="radio" id="code_M" name="code_type" value="メジャー(M)" onChange={codeTypeSelect} />(M)</label>
-                <label><input type="radio" id="code_m" name="code_type" value="マイナー(m)" onChange={codeTypeSelect} />m</label>
-                <label><input type="radio" id="code_dim" name="code_type" value="ディミニッシュ(dim)" onChange={codeTypeSelect} />dim</label>
-                <label><input type="radio" id="code_aug" name="code_type" value="オーギュメント(aug)" onChange={codeTypeSelect} />aug</label>
-                <label><input type="radio" id="code_sus4" name="code_type" value="サスペンデッド4th(sus4)" onChange={codeTypeSelect} />sus4</label>
+                <label><input type="radio" id="code_M" name="code_type" value="メジャー" onChange={codeTypeSelect} />(M)</label>
+                <label><input type="radio" id="code_m" name="code_type" value="マイナー" onChange={codeTypeSelect} />m</label>
+                <label><input type="radio" id="code_dim" name="code_type" value="ディミニッシュ" onChange={codeTypeSelect} />dim</label>
+                <label><input type="radio" id="code_aug" name="code_type" value="オーギュメント" onChange={codeTypeSelect} />aug</label>
+                <label><input type="radio" id="code_sus4" name="code_type" value="サスペンデッド4th" onChange={codeTypeSelect} />sus4</label>
               </dd>
             </dl>
             <dl>
               <dt>四和音</dt>
               <dd>
-                <label><input type="radio" id="code_M7" name="code_type" value="メジャーセブンス(M7)" onChange={codeTypeSelect} />M7</label>
-                <label><input type="radio" id="code_7" name="code_type" value="セブンス(7)" onChange={codeTypeSelect} />7</label>
-                <label><input type="radio" id="code_mM7" name="code_type" value="マイナー・メジャー・セブンス(mM7)" onChange={codeTypeSelect} />mM7</label>
-                <label><input type="radio" id="code_m7" name="code_type" value="マイナー・セブンス(m7)" onChange={codeTypeSelect} />m7</label>
-                <label><input type="radio" id="code_m7-5" name="code_type" value="マイナー・セブンス・フラット・ファイブ(m7(-5))" onChange={codeTypeSelect} />m7(-5)</label>
-                <label><input type="radio" id="code_dim7" name="code_type" value="ディミニッシュ・セブンス(dim7)" onChange={codeTypeSelect} />dim7</label>
-                <label><input type="radio" id="code_augM7" name="code_type" value="オーグメント・メジャー・セブンス(augM7)" onChange={codeTypeSelect} />augM7</label>
-                <label><input type="radio" id="code_aug7" name="code_type" value="オーギュメント・セブンス(aug7)" onChange={codeTypeSelect} />aug7</label>
-                <label><input type="radio" id="code_M7sus4" name="code_type" value="メジャー・セブンス・サスペンデッド4th(M7sus4)" onChange={codeTypeSelect} />M7sus4</label>
-                <label><input type="radio" id="code_7sus4" name="code_type" value="セブンス・サスペンデッド4th(7sus4)" onChange={codeTypeSelect} />7sus4</label>
-                <label><input type="radio" id="code_6" name="code_type" value="シックスス(6)" onChange={codeTypeSelect} />6</label>
-                <label><input type="radio" id="code_m6" name="code_type" value="マイナー・シックスス(m6)" onChange={codeTypeSelect} />m6</label>
+                <label><input type="radio" id="code_M7" name="code_type" value="メジャーセブンス" onChange={codeTypeSelect} />M7</label>
+                <label><input type="radio" id="code_7" name="code_type" value="セブンス" onChange={codeTypeSelect} />7</label>
+                <label><input type="radio" id="code_mM7" name="code_type" value="マイナー・メジャー・セブンス" onChange={codeTypeSelect} />mM7</label>
+                <label><input type="radio" id="code_m7" name="code_type" value="マイナー・セブンス" onChange={codeTypeSelect} />m7</label>
+                <label><input type="radio" id="code_m7-5" name="code_type" value="マイナー・セブンス・フラット・ファイブ" onChange={codeTypeSelect} />m7(-5)</label>
+                <label><input type="radio" id="code_dim7" name="code_type" value="ディミニッシュ・セブンス" onChange={codeTypeSelect} />dim7</label>
+                <label><input type="radio" id="code_augM7" name="code_type" value="オーグメント・メジャー・セブンス" onChange={codeTypeSelect} />augM7</label>
+                <label><input type="radio" id="code_aug7" name="code_type" value="オーギュメント・セブンス" onChange={codeTypeSelect} />aug7</label>
+                <label><input type="radio" id="code_M7sus4" name="code_type" value="メジャー・セブンス・サスペンデッド4th" onChange={codeTypeSelect} />M7sus4</label>
+                <label><input type="radio" id="code_7sus4" name="code_type" value="セブンス・サスペンデッド4th" onChange={codeTypeSelect} />7sus4</label>
+                <label><input type="radio" id="code_6" name="code_type" value="シックスス" onChange={codeTypeSelect} />6</label>
+                <label><input type="radio" id="code_m6" name="code_type" value="マイナー・シックスス" onChange={codeTypeSelect} />m6</label>
               </dd>
             </dl>
             <dl>
               <dt>五和音</dt>
               <dd>
-                <label><input type="radio" id="code_M9" name="code_type" value="メジャーナインス(M9)" onChange={codeTypeSelect} />M9</label>
-                <label><input type="radio" id="code_9" name="code_type" value="ナインス(9)" onChange={codeTypeSelect} />9</label>
-                <label><input type="radio" id="code_7_f9" name="code_type" value="セブンス・フラット・ナインス(7(-9))" onChange={codeTypeSelect} />7(-9)</label>
-                <label><input type="radio" id="code_7_s9" name="code_type" value="セブンス・シャープ・ナインス(7(+9))" onChange={codeTypeSelect} />7(+9)</label>
-                <label><input type="radio" id="code_m7_11" name="code_type" value="マイナー・セブンス・イレブンス(m7(11))" onChange={codeTypeSelect} />m7(11)</label>
-                <label><input type="radio" id="code_7_s11" name="code_type" value="セブンス・シャープ・イレブンス(7(+11))" onChange={codeTypeSelect} />7(+11)</label>
-                <label><input type="radio" id="code_M7_13" name="code_type" value="メジャー・セブンス・サーティーンズ(M7(13))" onChange={codeTypeSelect} />M7(13)</label>
-                <label><input type="radio" id="code_M7_13" name="code_type" value="セブンス・サーティーンズ(M7(13))" onChange={codeTypeSelect} />7(13)</label>
-                <label><input type="radio" id="code_M7_f13" name="code_type" value="セブンス・フラット・サーティーンズ(M7(-13))" onChange={codeTypeSelect} />7(-13)</label>
-                <label><input type="radio" id="code_69" name="code_type" value="シックス・ナインス(69)" onChange={codeTypeSelect} />69</label>
-                <label><input type="radio" id="code_m69" name="code_type" value="マイナー・シックス・ナインス(m69)" onChange={codeTypeSelect} />m69</label>
+                <label><input type="radio" id="code_M9" name="code_type" value="メジャーナインス¥" onChange={codeTypeSelect} />M9</label>
+                <label><input type="radio" id="code_9" name="code_type" value="ナインス" onChange={codeTypeSelect} />9</label>
+                <label><input type="radio" id="code_7_f9" name="code_type" value="セブンス・フラット・ナインス" onChange={codeTypeSelect} />7(-9)</label>
+                <label><input type="radio" id="code_7_s9" name="code_type" value="セブンス・シャープ・ナインス" onChange={codeTypeSelect} />7(+9)</label>
+                <label><input type="radio" id="code_m7_11" name="code_type" value="マイナー・セブンス・イレブンス" onChange={codeTypeSelect} />m7(11)</label>
+                <label><input type="radio" id="code_7_s11" name="code_type" value="セブンス・シャープ・イレブンス" onChange={codeTypeSelect} />7(+11)</label>
+                <label><input type="radio" id="code_M7_13" name="code_type" value="メジャー・セブンス・サーティーンズ" onChange={codeTypeSelect} />M7(13)</label>
+                <label><input type="radio" id="code_M7_13" name="code_type" value="セブンス・サーティーンズ" onChange={codeTypeSelect} />7(13)</label>
+                <label><input type="radio" id="code_M7_f13" name="code_type" value="セブンス・フラット・サーティーンズ" onChange={codeTypeSelect} />7(-13)</label>
+                <label><input type="radio" id="code_69" name="code_type" value="シックス・ナインス" onChange={codeTypeSelect} />69</label>
+                <label><input type="radio" id="code_m69" name="code_type" value="マイナー・シックス・ナインス" onChange={codeTypeSelect} />m69</label>
               </dd>
             </dl>
           </form>
