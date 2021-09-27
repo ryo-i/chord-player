@@ -320,16 +320,19 @@ function Inner() {
 
   //コードタイプ設定
   function codeTypeSelect(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log('codeValue', e.target.value);
-    /* for(let i = 0; i < codeType.length; i++){
-      if(codeType[i].checked) {
-        const CodeTypeValue = codeType[i].value;
+    const getCodeValue = e.target.value;
+    console.log('getCodeValue', getCodeValue);
+    for(let i = 0; i < codeTypes.length; i++){
+      if(codeTypes[i].codeValue === getCodeValue) {
+        const getcodeTypes = codeTypes[i];
+        console.log('getcodeTypes', getcodeTypes);
+        /* const CodeTypeValue = codeType[i].value;
         codeTypeText.innerHTML = CodeTypeValue;
         const CodeKyesValue = codeTypes[i].codeKeys;
         codeKeysText.innerHTML = '構成音:' +  CodeKyesValue;
-        return chords[i];
+        return chords[i]; */
       }
-    } */
+    }
   }
 
   // codeTypeSelect();

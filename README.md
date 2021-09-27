@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- cordのvalueを統一 -> consoleに表示 [#3](https://github.com/ryo-i/next-app-started/issues/3)
+- cordタグのvalueからcodeTypesを取得 [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
 
