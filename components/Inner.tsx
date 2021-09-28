@@ -100,9 +100,6 @@ function Inner() {
   const [codeKeys, setCodeKeys] = useState('1');
   const [chords, setChords] = useState([]);
 
-  useEffect(() => {
-    // ページ読み込み時の処理
-  });
 
   // Tone.js Test
   const toneJsTest = () => {
@@ -300,22 +297,21 @@ function Inner() {
       },
   ];
 
-  //和音入れ場
-  let getChords = [];
-
   //和音
-  for (let h = 0 ; h < codeTypes.length; h++ ) {
-    getChords.push( [] );
-    for (let i = 0 ; i < Key.length; i++ ) {
-      getChords[h].push( [] );
-      for (var  j = 0; j < codeTypes[h]['codeKeys'].length; j++){
-        const nmb = scale[i+codeTypes[h]['codeKeys'][j]];
-        getChords[h][i].push(nmb);
+  let getChords = [];
+  useEffect(() => {
+    for (let h = 0 ; h < codeTypes.length; h++ ) {
+      getChords.push( [] );
+      for (let i = 0 ; i < Key.length; i++ ) {
+        getChords[h].push( [] );
+        for (var  j = 0; j < codeTypes[h]['codeKeys'].length; j++){
+          const nmb = scale[i+codeTypes[h]['codeKeys'][j]];
+          getChords[h][i].push(nmb);
+        }
       }
     }
-  }
-
-  console.log(getChords);
+    console.log(getChords);
+  }, []);
   // setChords(getChords);
 
   //コードタイプ設定
@@ -325,7 +321,11 @@ function Inner() {
     for(let i = 0; i < codeTypes.length; i++){
       if(codeTypes[i].codeValue === getCodeValue) {
         const getcodeTypes = codeTypes[i];
-        console.log('getcodeTypes', getcodeTypes);
+        setCodeValue(getcodeTypes.codeValue);
+        setCodeName(getcodeTypes.codeName);
+        setCodeKeys(getcodeTypes.codeKeys.join(', '));
+
+
         /* const CodeTypeValue = codeType[i].value;
         codeTypeText.innerHTML = CodeTypeValue;
         const CodeKyesValue = codeTypes[i].codeKeys;
