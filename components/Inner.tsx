@@ -101,15 +101,6 @@ function Inner() {
   const [chords, setChords] = useState([]);
 
 
-  // Tone.js Test
-  const toneJsTest = () => {
-    //create a synth and connect it to the main output (your speakers)
-    const synth = new Tone.Synth().toDestination();
-
-    //play a middle 'C' for the duration of an 8th note
-    synth.triggerAttackRelease("C4", "8n");
-  };
-
   //DOM
   // const Key = document.querySelectorAll('#piano li');
   const Key = [
@@ -298,34 +289,35 @@ function Inner() {
   ];
 
   //和音
-  let getChords = [];
-  useEffect(() => {
-    for (let h = 0 ; h < codeTypes.length; h++ ) {
+  const getChords = (codeTypes) => {
+    let getChords = [];
+    for (let i = 0 ; i < Key.length; i++ ) {
       getChords.push( [] );
-      for (let i = 0 ; i < Key.length; i++ ) {
-        getChords[h].push( [] );
-        for (var  j = 0; j < codeTypes[h]['codeKeys'].length; j++){
-          const nmb = scale[i+codeTypes[h]['codeKeys'][j]];
-          getChords[h][i].push(nmb);
-        }
+      for (var  j = 0; j < codeTypes['codeKeys'].length; j++){
+        const nmb = scale[i+codeTypes['codeKeys'][j]];
+        getChords[i].push(nmb);
       }
     }
-    console.log(getChords);
-  }, []);
-  // setChords(getChords);
+    return getChords;
+  };
 
   //コードタイプ設定
   function codeTypeSelect(e: React.ChangeEvent<HTMLInputElement>) {
     const getCodeValue = e.target.value;
     console.log('getCodeValue', getCodeValue);
+    let getcodeTypes;
     for(let i = 0; i < codeTypes.length; i++){
       if(codeTypes[i].codeValue === getCodeValue) {
-        const getcodeTypes = codeTypes[i];
+        getcodeTypes = codeTypes[i];
         setCodeValue(getcodeTypes.codeValue);
         setCodeName(getcodeTypes.codeName);
         setCodeKeys(getcodeTypes.codeKeys.join(', '));
       }
     }
+
+    const getThisChords = getChords(getcodeTypes);
+    setChords(getThisChords);
+    console.log('getThisChords', getThisChords);
   }
 
   //シンセ生成
