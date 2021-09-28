@@ -324,26 +324,22 @@ function Inner() {
         setCodeValue(getcodeTypes.codeValue);
         setCodeName(getcodeTypes.codeName);
         setCodeKeys(getcodeTypes.codeKeys.join(', '));
-
-
-        /* const CodeTypeValue = codeType[i].value;
-        codeTypeText.innerHTML = CodeTypeValue;
-        const CodeKyesValue = codeTypes[i].codeKeys;
-        codeKeysText.innerHTML = '構成音:' +  CodeKyesValue;
-        return chords[i]; */
       }
     }
   }
 
-  // codeTypeSelect();
-
   //シンセ生成
-  // var synth = new Tone.PolySynth().toMaster();
+  let synth;
+  useEffect(() => {
+    synth = new Tone.PolySynth().toDestination();
+  }, []);
 
   //イベントリスナ
   function clickKey(e) {
-    console.log('KeyValue', e.target.value);
-    toneJsTest();
+    const KeyValue = e.target.value;
+    console.log('KeyValue', KeyValue);
+    synth.triggerAttackRelease(KeyValue, '4n');
+    // toneJsTest();
     /* for (let i = 0; i < Key.length; i++) {
       (function(i) {
         Key[i].addEventListener('click', function () {

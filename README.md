@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- コード変更時に画面に表示しているコード名も変更 [#3](https://github.com/ryo-i/next-app-started/issues/3)
+- 鍵盤を押すと音程が変わるように変更 [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
 
