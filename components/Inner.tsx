@@ -419,7 +419,6 @@ function Inner() {
               </dd>
             </dl>
           </form>
-          <p>でぷろいてすと3</p>
         </div>
       </CoadPlayer>
     </>
