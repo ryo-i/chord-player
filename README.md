@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- デプロイが適用されるかテスト [#4](https://github.com/ryo-i/next-app-started/issues/4)
+- デプロイが適用されるかテスト2 [#4](https://github.com/ryo-i/next-app-started/issues/4)
 - コードタイプ変更時にコード構成音を取得 [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
