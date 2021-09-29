@@ -4,11 +4,11 @@ Tone.jsを使ったコードプレイヤー
 
 ## 作っているもの
 
-※参考：[https://cord-player.vercel.app/](https://cord-player.vercel.app/)
+※参考：[https://chord-player.vercel.app/](https://chord-player.vercel.app/)
 
 ## 進捗（コミット）
 
-- リポジトリ名を変更 [#4](https://github.com/ryo-i/next-app-started/issues/4)
+- デプロイ版のURLを変更 [#4](https://github.com/ryo-i/next-app-started/issues/4)
 - コードタイプ変更時にコード構成音を取得 [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
