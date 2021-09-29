@@ -6,7 +6,7 @@ import * as Tone from 'tone';
 
 // CSS in JS
 const CoadPlayer = styled.section`
-  h2, #code_type, #code_type_text {
+  h2, #chord_type, #chord_type_text {
     text-align: center;
   }
 
@@ -81,12 +81,12 @@ const CoadPlayer = styled.section`
     opacity: 0.7;
   }
 
-  #code_type_text {
+  #chord_type_text {
     font-size: 20px;
     margin: 10px 0 0;
   }
 
-  #code_keys_text {
+  #chord_keys_text {
     margin: 0 0 10px;
   }
 `;
@@ -95,9 +95,9 @@ const CoadPlayer = styled.section`
 // Component
 function Inner() {
   // Hooks
-  const [codeValue, setCodeValue] = useState('ルート');
-  const [codeName, setCodeName] = useState('R');
-  const [codeKeys, setCodeKeys] = useState('1');
+  const [chordValue, setChordValue] = useState('ルート');
+  const [chordName, setChordName] = useState('R');
+  const [chordKeys, setChordKeys] = useState('1');
   const [chords, setChords] = useState([]);
 
 
@@ -118,9 +118,9 @@ function Inner() {
     {id: "B4", className: "w_key", keyName: "B"},
     {id: "C5", className: "w_key", keyName: "C"}
   ];
-  // const codeTypeText = document.querySelector('#code_type_text');
-  // const codeType = document.getElementsByName("code_type");
-  // const codeKeysText = document.querySelector('#code_keys_text');
+  // const chordTypeText = document.querySelector('#chord_type_text');
+  // const chordType = document.getElementsByName("chord_type");
+  // const chordKeysText = document.querySelector('#chord_keys_text');
 
   //音階
   var scale　= [
@@ -135,166 +135,166 @@ function Inner() {
   ];
 
   //コードタイプ
-  var codeTypes = [
+  var chordTypes = [
       {
-        'codeValue': 'ルート',
-        'codeName': 'R',
-        'codeKeys': [1]
+        'chordValue': 'ルート',
+        'chordName': 'R',
+        'chordKeys': [1]
       },
       {
-        'codeValue': 'パワーコード',
-        'codeName': '5',
-        'codeKeys': [1,8]
+        'chordValue': 'パワーコード',
+        'chordName': '5',
+        'chordKeys': [1,8]
       },
       {
-        'codeValue': 'メジャー',
-        'codeName': 'M',
-        'codeKeys': [1,5,8]
+        'chordValue': 'メジャー',
+        'chordName': 'M',
+        'chordKeys': [1,5,8]
       },
       {
-        'codeValue': 'マイナー',
-        'codeName': 'm',
-        'codeKeys': [1,4,8]
+        'chordValue': 'マイナー',
+        'chordName': 'm',
+        'chordKeys': [1,4,8]
       },
       {
-        'codeValue': 'ディミニッシュ',
-        'codeName': 'dim',
-        'codeKeys': [1,4,7]
+        'chordValue': 'ディミニッシュ',
+        'chordName': 'dim',
+        'chordKeys': [1,4,7]
       },
       {
-        'codeValue': 'オーギュメント',
-        'codeName': 'aug',
-        'codeKeys': [1,5,9]
+        'chordValue': 'オーギュメント',
+        'chordName': 'aug',
+        'chordKeys': [1,5,9]
       },
       {
-        'codeValue': 'サスペンデッド4th',
-        'codeName': 'sus4',
-        'codeKeys': [1,6,8]
+        'chordValue': 'サスペンデッド4th',
+        'chordName': 'sus4',
+        'chordKeys': [1,6,8]
       },
       {
-        'codeValue': 'メジャーセブンス',
-        'codeName': 'M7',
-        'codeKeys': [1,5,8,12]
+        'chordValue': 'メジャーセブンス',
+        'chordName': 'M7',
+        'chordKeys': [1,5,8,12]
       },
       {
-        'codeValue': 'セブンス',
-        'codeName': '7',
-        'codeKeys': [1,5,8,11]
+        'chordValue': 'セブンス',
+        'chordName': '7',
+        'chordKeys': [1,5,8,11]
       },
       {
-        'codeValue': 'マイナー・メジャー・セブンス',
-        'codeName': 'mM7',
-        'codeKeys': [1,4,8,12]
+        'chordValue': 'マイナー・メジャー・セブンス',
+        'chordName': 'mM7',
+        'chordKeys': [1,4,8,12]
       },
       {
-        'codeValue': 'マイナー・セブンス',
-        'codeName': 'm7',
-        'codeKeys': [1,4,8,11]
+        'chordValue': 'マイナー・セブンス',
+        'chordName': 'm7',
+        'chordKeys': [1,4,8,11]
       },
       {
-        'codeValue': 'マイナー・セブンス・フラット・ファイブ',
-        'codeName': 'm7(-5)',
-        'codeKeys': [1,4,7,11]
+        'chordValue': 'マイナー・セブンス・フラット・ファイブ',
+        'chordName': 'm7(-5)',
+        'chordKeys': [1,4,7,11]
       },
       {
-        'codeValue': 'ディミニッシュ・セブンス',
-        'codeName': 'dim7',
-        'codeKeys': [1,4,7,10]
+        'chordValue': 'ディミニッシュ・セブンス',
+        'chordName': 'dim7',
+        'chordKeys': [1,4,7,10]
       },
       {
-        'codeValue': 'オーグメント・メジャー・セブンス',
-        'codeName': 'augM7',
-        'codeKeys': [1,5,9,12]
+        'chordValue': 'オーグメント・メジャー・セブンス',
+        'chordName': 'augM7',
+        'chordKeys': [1,5,9,12]
       },
       {
-        'codeValue': 'オーギュメント・セブンス',
-        'codeName': 'aug7',
-        'codeKeys': [1,5,9,11]
+        'chordValue': 'オーギュメント・セブンス',
+        'chordName': 'aug7',
+        'chordKeys': [1,5,9,11]
       },
       {
-        'codeValue': 'メジャー・セブンス・サスペンデッド4th',
-        'codeName': 'M7sus4',
-        'codeKeys': [1,6,8,12]
+        'chordValue': 'メジャー・セブンス・サスペンデッド4th',
+        'chordName': 'M7sus4',
+        'chordKeys': [1,6,8,12]
       },
       {
-        'codeValue': 'セブンス・サスペンデッド4th',
-        'codeName': '7sus4',
-        'codeKeys': [1,6,8,11]
+        'chordValue': 'セブンス・サスペンデッド4th',
+        'chordName': '7sus4',
+        'chordKeys': [1,6,8,11]
       },
       {
-        'codeValue': 'シックスス',
-        'codeName': '6',
-        'codeKeys': [1,5,8,10]
+        'chordValue': 'シックスス',
+        'chordName': '6',
+        'chordKeys': [1,5,8,10]
       },
       {
-        'codeValue': 'マイナー・シックスス',
-        'codeName': 'm6',
-        'codeKeys': [1,4,8,10]
+        'chordValue': 'マイナー・シックスス',
+        'chordName': 'm6',
+        'chordKeys': [1,4,8,10]
       },
       {
-        'codeValue': 'メジャーナインス',
-        'codeName': 'M9',
-        'codeKeys': [1,5,8,12,15]
+        'chordValue': 'メジャーナインス',
+        'chordName': 'M9',
+        'chordKeys': [1,5,8,12,15]
       },
       {
-        'codeValue': 'ナインス',
-        'codeName': '9',
-        'codeKeys': [1,5,8,11,15]
+        'chordValue': 'ナインス',
+        'chordName': '9',
+        'chordKeys': [1,5,8,11,15]
       },
       {
-        'codeValue': 'セブンス・フラット・ナインス',
-        'codeName': '7(-9)',
-        'codeKeys': [1,5,8,11,14]
+        'chordValue': 'セブンス・フラット・ナインス',
+        'chordName': '7(-9)',
+        'chordKeys': [1,5,8,11,14]
       },
       {
-        'codeValue': 'セブンス・シャープ・ナインス',
-        'codeName': '7(+9)',
-        'codeKeys': [1,5,8,11,16]
+        'chordValue': 'セブンス・シャープ・ナインス',
+        'chordName': '7(+9)',
+        'chordKeys': [1,5,8,11,16]
       },
       {
-        'codeValue': 'マイナー・セブンス・イレブンス',
-        'codeName': 'm7(11)',
-        'codeKeys': [1,4,8,11,18]
+        'chordValue': 'マイナー・セブンス・イレブンス',
+        'chordName': 'm7(11)',
+        'chordKeys': [1,4,8,11,18]
       },
       {
-        'codeValue': 'セブンス・シャープ・イレブンス',
-        'codeName': '7(+11)',
-        'codeKeys': [1,5,8,11,19]
+        'chordValue': 'セブンス・シャープ・イレブンス',
+        'chordName': '7(+11)',
+        'chordKeys': [1,5,8,11,19]
       },
       {
-        'codeValue': 'メジャー・セブンス・サーティーンズ',
-        'codeName': 'M7(13)',
-        'codeKeys': [1,5,8,12,22]
+        'chordValue': 'メジャー・セブンス・サーティーンズ',
+        'chordName': 'M7(13)',
+        'chordKeys': [1,5,8,12,22]
       },
       {
-        'codeValue': 'セブンス・サーティーンズ',
-        'codeName': '7(13)',
-        'codeKeys': [1,5,8,11,22]
+        'chordValue': 'セブンス・サーティーンズ',
+        'chordName': '7(13)',
+        'chordKeys': [1,5,8,11,22]
       },
       {
-        'codeValue': 'セブンス・フラット・サーティーンズ',
-        'codeName': '7(-13)',
-        'codeKeys': [1,5,8,11,21]
+        'chordValue': 'セブンス・フラット・サーティーンズ',
+        'chordName': '7(-13)',
+        'chordKeys': [1,5,8,11,21]
       },
       {
-        'codeValue': 'シックス・ナインス',
-        'codeName': '69',
-        'codeKeys': [1,5,8,10,15]
+        'chordValue': 'シックス・ナインス',
+        'chordName': '69',
+        'chordKeys': [1,5,8,10,15]
       },
       {
-        'codeValue': 'マイナー・シックス・ナインス',
-        'codeName': 'm69',
-        'codeKeys': [1,4,8,10,15]
+        'chordValue': 'マイナー・シックス・ナインス',
+        'chordName': 'm69',
+        'chordKeys': [1,4,8,10,15]
       },
   ];
 
   //和音
-  const getChords = (codeTypes) => {
+  const getChords = (chordTypes) => {
     let getChords = [];
     for (let i = 0 ; i < Key.length; i++ ) {
       getChords.push( [] );
-      for (var  j = 0; j < codeTypes['codeKeys'].length; j++){
-        const nmb = scale[i+codeTypes['codeKeys'][j]];
+      for (var  j = 0; j < chordTypes['chordKeys'].length; j++){
+        const nmb = scale[i+chordTypes['chordKeys'][j]];
         getChords[i].push(nmb);
       }
     }
@@ -302,20 +302,20 @@ function Inner() {
   };
 
   //コードタイプ設定
-  function codeTypeSelect(e: React.ChangeEvent<HTMLInputElement>) {
-    const getCodeValue = e.target.value;
-    console.log('getCodeValue', getCodeValue);
-    let getcodeTypes;
-    for(let i = 0; i < codeTypes.length; i++){
-      if(codeTypes[i].codeValue === getCodeValue) {
-        getcodeTypes = codeTypes[i];
-        setCodeValue(getcodeTypes.codeValue);
-        setCodeName(getcodeTypes.codeName);
-        setCodeKeys(getcodeTypes.codeKeys.join(', '));
+  function chordTypeSelect(e: React.ChangeEvent<HTMLInputElement>) {
+    const getChordValue = e.target.value;
+    console.log('getChordValue', getChordValue);
+    let getchordTypes;
+    for(let i = 0; i < chordTypes.length; i++){
+      if(chordTypes[i].chordValue === getChordValue) {
+        getchordTypes = chordTypes[i];
+        setChordValue(getchordTypes.chordValue);
+        setChordName(getchordTypes.chordName);
+        setChordKeys(getchordTypes.chordKeys.join(', '));
       }
     }
 
-    const getThisChords = getChords(getcodeTypes);
+    const getThisChords = getChords(getchordTypes);
     setChords(getThisChords);
     console.log('getThisChords', getThisChords);
   }
@@ -336,9 +336,9 @@ function Inner() {
       (function(i) {
         Key[i].addEventListener('click', function () {
         //チェックされているコードタイプを確認
-        var seletcCords = codeTypeSelect();
+        var seletcChords = chordTypeSelect();
         //メジャーコードが4分音符の長さ鳴る
-        synth.triggerAttackRelease(seletcCords[i], '4n');
+        synth.triggerAttackRelease(seletcChords[i], '4n');
         }, false);
       })(i);
     } */
@@ -364,58 +364,58 @@ function Inner() {
           <button value="B4" className="w_key" onClick={clickKey}>B</button>
           <button value="C5" className="w_key" onClick={clickKey}>C</button>
         </div>
-        <div id="code_type">
-          <p id="code_type_text">{codeValue}({codeName})</p>
-          <p id="code_keys_text">構成音:{codeKeys}</p>
-          <form name="code_types" className="">
+        <div id="chord_type">
+          <p id="chord_type_text">{chordValue}({chordName})</p>
+          <p id="chord_keys_text">構成音:{chordKeys}</p>
+          <form name="chord_types" className="">
             <dl>
               <dt>根音</dt>
               <dd>
-                <label><input type="radio" id="code_R" name="code_type" value="ルート" onChange={codeTypeSelect} defaultChecked />(R)</label>
-                <label><input type="radio" id="code_5" name="code_type" value="パワーコード" onChange={codeTypeSelect} />5</label>
+                <label><input type="radio" id="chord_R" name="chord_type" value="ルート" onChange={chordTypeSelect} defaultChecked />(R)</label>
+                <label><input type="radio" id="chord_5" name="chord_type" value="パワーコード" onChange={chordTypeSelect} />5</label>
               </dd>
             </dl>
             <dl>
               <dt>三和音</dt>
               <dd>
-                <label><input type="radio" id="code_M" name="code_type" value="メジャー" onChange={codeTypeSelect} />(M)</label>
-                <label><input type="radio" id="code_m" name="code_type" value="マイナー" onChange={codeTypeSelect} />m</label>
-                <label><input type="radio" id="code_dim" name="code_type" value="ディミニッシュ" onChange={codeTypeSelect} />dim</label>
-                <label><input type="radio" id="code_aug" name="code_type" value="オーギュメント" onChange={codeTypeSelect} />aug</label>
-                <label><input type="radio" id="code_sus4" name="code_type" value="サスペンデッド4th" onChange={codeTypeSelect} />sus4</label>
+                <label><input type="radio" id="chord_M" name="chord_type" value="メジャー" onChange={chordTypeSelect} />(M)</label>
+                <label><input type="radio" id="chord_m" name="chord_type" value="マイナー" onChange={chordTypeSelect} />m</label>
+                <label><input type="radio" id="chord_dim" name="chord_type" value="ディミニッシュ" onChange={chordTypeSelect} />dim</label>
+                <label><input type="radio" id="chord_aug" name="chord_type" value="オーギュメント" onChange={chordTypeSelect} />aug</label>
+                <label><input type="radio" id="chord_sus4" name="chord_type" value="サスペンデッド4th" onChange={chordTypeSelect} />sus4</label>
               </dd>
             </dl>
             <dl>
               <dt>四和音</dt>
               <dd>
-                <label><input type="radio" id="code_M7" name="code_type" value="メジャーセブンス" onChange={codeTypeSelect} />M7</label>
-                <label><input type="radio" id="code_7" name="code_type" value="セブンス" onChange={codeTypeSelect} />7</label>
-                <label><input type="radio" id="code_mM7" name="code_type" value="マイナー・メジャー・セブンス" onChange={codeTypeSelect} />mM7</label>
-                <label><input type="radio" id="code_m7" name="code_type" value="マイナー・セブンス" onChange={codeTypeSelect} />m7</label>
-                <label><input type="radio" id="code_m7-5" name="code_type" value="マイナー・セブンス・フラット・ファイブ" onChange={codeTypeSelect} />m7(-5)</label>
-                <label><input type="radio" id="code_dim7" name="code_type" value="ディミニッシュ・セブンス" onChange={codeTypeSelect} />dim7</label>
-                <label><input type="radio" id="code_augM7" name="code_type" value="オーグメント・メジャー・セブンス" onChange={codeTypeSelect} />augM7</label>
-                <label><input type="radio" id="code_aug7" name="code_type" value="オーギュメント・セブンス" onChange={codeTypeSelect} />aug7</label>
-                <label><input type="radio" id="code_M7sus4" name="code_type" value="メジャー・セブンス・サスペンデッド4th" onChange={codeTypeSelect} />M7sus4</label>
-                <label><input type="radio" id="code_7sus4" name="code_type" value="セブンス・サスペンデッド4th" onChange={codeTypeSelect} />7sus4</label>
-                <label><input type="radio" id="code_6" name="code_type" value="シックスス" onChange={codeTypeSelect} />6</label>
-                <label><input type="radio" id="code_m6" name="code_type" value="マイナー・シックスス" onChange={codeTypeSelect} />m6</label>
+                <label><input type="radio" id="chord_M7" name="chord_type" value="メジャーセブンス" onChange={chordTypeSelect} />M7</label>
+                <label><input type="radio" id="chord_7" name="chord_type" value="セブンス" onChange={chordTypeSelect} />7</label>
+                <label><input type="radio" id="chord_mM7" name="chord_type" value="マイナー・メジャー・セブンス" onChange={chordTypeSelect} />mM7</label>
+                <label><input type="radio" id="chord_m7" name="chord_type" value="マイナー・セブンス" onChange={chordTypeSelect} />m7</label>
+                <label><input type="radio" id="chord_m7-5" name="chord_type" value="マイナー・セブンス・フラット・ファイブ" onChange={chordTypeSelect} />m7(-5)</label>
+                <label><input type="radio" id="chord_dim7" name="chord_type" value="ディミニッシュ・セブンス" onChange={chordTypeSelect} />dim7</label>
+                <label><input type="radio" id="chord_augM7" name="chord_type" value="オーグメント・メジャー・セブンス" onChange={chordTypeSelect} />augM7</label>
+                <label><input type="radio" id="chord_aug7" name="chord_type" value="オーギュメント・セブンス" onChange={chordTypeSelect} />aug7</label>
+                <label><input type="radio" id="chord_M7sus4" name="chord_type" value="メジャー・セブンス・サスペンデッド4th" onChange={chordTypeSelect} />M7sus4</label>
+                <label><input type="radio" id="chord_7sus4" name="chord_type" value="セブンス・サスペンデッド4th" onChange={chordTypeSelect} />7sus4</label>
+                <label><input type="radio" id="chord_6" name="chord_type" value="シックスス" onChange={chordTypeSelect} />6</label>
+                <label><input type="radio" id="chord_m6" name="chord_type" value="マイナー・シックスス" onChange={chordTypeSelect} />m6</label>
               </dd>
             </dl>
             <dl>
               <dt>五和音</dt>
               <dd>
-                <label><input type="radio" id="code_M9" name="code_type" value="メジャーナインス¥" onChange={codeTypeSelect} />M9</label>
-                <label><input type="radio" id="code_9" name="code_type" value="ナインス" onChange={codeTypeSelect} />9</label>
-                <label><input type="radio" id="code_7_f9" name="code_type" value="セブンス・フラット・ナインス" onChange={codeTypeSelect} />7(-9)</label>
-                <label><input type="radio" id="code_7_s9" name="code_type" value="セブンス・シャープ・ナインス" onChange={codeTypeSelect} />7(+9)</label>
-                <label><input type="radio" id="code_m7_11" name="code_type" value="マイナー・セブンス・イレブンス" onChange={codeTypeSelect} />m7(11)</label>
-                <label><input type="radio" id="code_7_s11" name="code_type" value="セブンス・シャープ・イレブンス" onChange={codeTypeSelect} />7(+11)</label>
-                <label><input type="radio" id="code_M7_13" name="code_type" value="メジャー・セブンス・サーティーンズ" onChange={codeTypeSelect} />M7(13)</label>
-                <label><input type="radio" id="code_M7_13" name="code_type" value="セブンス・サーティーンズ" onChange={codeTypeSelect} />7(13)</label>
-                <label><input type="radio" id="code_M7_f13" name="code_type" value="セブンス・フラット・サーティーンズ" onChange={codeTypeSelect} />7(-13)</label>
-                <label><input type="radio" id="code_69" name="code_type" value="シックス・ナインス" onChange={codeTypeSelect} />69</label>
-                <label><input type="radio" id="code_m69" name="code_type" value="マイナー・シックス・ナインス" onChange={codeTypeSelect} />m69</label>
+                <label><input type="radio" id="chord_M9" name="chord_type" value="メジャーナインス¥" onChange={chordTypeSelect} />M9</label>
+                <label><input type="radio" id="chord_9" name="chord_type" value="ナインス" onChange={chordTypeSelect} />9</label>
+                <label><input type="radio" id="chord_7_f9" name="chord_type" value="セブンス・フラット・ナインス" onChange={chordTypeSelect} />7(-9)</label>
+                <label><input type="radio" id="chord_7_s9" name="chord_type" value="セブンス・シャープ・ナインス" onChange={chordTypeSelect} />7(+9)</label>
+                <label><input type="radio" id="chord_m7_11" name="chord_type" value="マイナー・セブンス・イレブンス" onChange={chordTypeSelect} />m7(11)</label>
+                <label><input type="radio" id="chord_7_s11" name="chord_type" value="セブンス・シャープ・イレブンス" onChange={chordTypeSelect} />7(+11)</label>
+                <label><input type="radio" id="chord_M7_13" name="chord_type" value="メジャー・セブンス・サーティーンズ" onChange={chordTypeSelect} />M7(13)</label>
+                <label><input type="radio" id="chord_M7_13" name="chord_type" value="セブンス・サーティーンズ" onChange={chordTypeSelect} />7(13)</label>
+                <label><input type="radio" id="chord_M7_f13" name="chord_type" value="セブンス・フラット・サーティーンズ" onChange={chordTypeSelect} />7(-13)</label>
+                <label><input type="radio" id="chord_69" name="chord_type" value="シックス・ナインス" onChange={chordTypeSelect} />69</label>
+                <label><input type="radio" id="chord_m69" name="chord_type" value="マイナー・シックス・ナインス" onChange={chordTypeSelect} />m69</label>
               </dd>
             </dl>
           </form>
