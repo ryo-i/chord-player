@@ -8,8 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- head内のurl変更 [#4](https://github.com/ryo-i/next-app-started/issues/4)
-- コードタイプ変更時にコード構成音を取得 [#3](https://github.com/ryo-i/next-app-started/issues/3)
+- 鍵盤を押すとコード構成音を取得して鳴らす [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
 

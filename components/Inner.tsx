@@ -100,27 +100,25 @@ function Inner() {
   const [chordKeys, setChordKeys] = useState('1');
   const [chords, setChords] = useState([]);
 
-
-  //DOM
-  // const Key = document.querySelectorAll('#piano li');
+  // コード初期設定
   const Key = [
-    {id: "C4", className: "w_key", keyName: "C"},
-    {id: "Cs4", className: "b_key", keyName: ""},
-    {id: "D4", className: "w_key", keyName: "D"},
-    {id: "Ds4", className: "b_key", keyName: ""},
-    {id: "E4", className: "w_key", keyName: "E"},
-    {id: "F4", className: "w_key", keyName: "F"},
-    {id: "Fs4", className: "b_key", keyName: ""},
-    {id: "G4", className: "w_key", keyName: "G"},
-    {id: "Gs4", className: "b_key", keyName: ""},
-    {id: "A4", className: "w_key", keyName: "A"},
-    {id: "As4", className: "b_key", keyName: ""},
-    {id: "B4", className: "w_key", keyName: "B"},
-    {id: "C5", className: "w_key", keyName: "C"}
+    ['C4'],
+    ['C#4'],
+    ['D4'],
+    ['D#4'],
+    ['E4'],
+    ['F4'],
+    ['F#4'],
+    ['G4'],
+    ['G#4'],
+    ['A4'],
+    ['A#4'],
+    ['B4'],
+    ['C5']
   ];
-  // const chordTypeText = document.querySelector('#chord_type_text');
-  // const chordType = document.getElementsByName("chord_type");
-  // const chordKeysText = document.querySelector('#chord_keys_text');
+  useEffect(() => {
+    setChords(Key);
+  }, []);
 
   //音階
   var scale　= [
@@ -302,7 +300,7 @@ function Inner() {
   };
 
   //コードタイプ設定
-  function chordTypeSelect(e: React.ChangeEvent<HTMLInputElement>) {
+  const chordTypeSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const getChordValue = e.target.value;
     console.log('getChordValue', getChordValue);
     let getchordTypes;
@@ -320,28 +318,21 @@ function Inner() {
     console.log('getThisChords', getThisChords);
   }
 
-  //シンセ生成
-  let synth;
-  useEffect(() => {
-    synth = new Tone.PolySynth().toDestination();
-  }, []);
-
-  //イベントリスナ
-  function clickKey(e) {
+  // 鍵盤クリックイベント
+  const clickKey = (e) => {
     const KeyValue = e.target.value;
     console.log('KeyValue', KeyValue);
-    synth.triggerAttackRelease(KeyValue, '4n');
-    // toneJsTest();
-    /* for (let i = 0; i < Key.length; i++) {
-      (function(i) {
-        Key[i].addEventListener('click', function () {
-        //チェックされているコードタイプを確認
-        var seletcChords = chordTypeSelect();
-        //メジャーコードが4分音符の長さ鳴る
-        synth.triggerAttackRelease(seletcChords[i], '4n');
-        }, false);
-      })(i);
-    } */
+
+    let getChord;
+    for (let i = 0 ; i < chords.length; i++) {
+      if (chords[i].indexOf(KeyValue) === 0) {
+        getChord = chords[i];
+        console.log('getCord', getChord);
+      }
+    }
+
+    const synth = new Tone.PolySynth().toDestination();
+    synth.triggerAttackRelease(getChord, '4n');
   }
 
   // JSX
