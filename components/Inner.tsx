@@ -318,6 +318,12 @@ function Inner() {
     console.log('getThisChords', getThisChords);
   }
 
+  // シンセ設定
+  let synth;
+  useEffect(() => {
+    synth = new Tone.PolySynth().toDestination();
+  });
+
   // 鍵盤クリックイベント
   const clickKey = (e) => {
     const KeyValue = e.target.value;
@@ -331,8 +337,8 @@ function Inner() {
       }
     }
 
-    const synth = new Tone.PolySynth().toDestination();
-    synth.triggerAttackRelease(getChord, '4n');
+
+    synth.triggerAttackRelease(getChord, '8n');
   }
 
   // JSX

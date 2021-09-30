@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- 鍵盤を押すとコード構成音を取得して鳴らす [#3](https://github.com/ryo-i/next-app-started/issues/3)
+- 早く弾くと音が詰まるのでシンセ設定を分離してみる [#3](https://github.com/ryo-i/next-app-started/issues/3)
 
 ## 詳細（ブログ）
 
