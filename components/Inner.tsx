@@ -95,6 +95,8 @@ function Inner() {
   const [chordName, setChordName] = useState(inner.chordTypes[0].chordName);
   const [chordKeys, setChordKeys] = useState(inner.chordTypes[0].chordKeys);
   const [chords, setChords] = useState(inner.keys);
+  const [rootKey, setRootKey] = useState('-');
+  const [chordsInterval, setChordIntervals] = useState('-');
 
 
   //和音
@@ -161,9 +163,14 @@ function Inner() {
       }
     }
 
-    // test
-    const getChordKeysText = chordKeysText(getChord);
-    console.log('getChordKeysText', getChordKeysText);
+    // 和音の音程を取得
+    const getChordsIntervalsArray = chordKeysText(getChord);
+    const getRootkey = getChordsIntervalsArray[0];
+    const getChordsIntervals = getChordsIntervalsArray.join(', ');
+    // console.log('getRootkey', getRootkey);
+    // console.log('getChordsInterval', getChordsIntervals);
+    setRootKey(getRootkey);
+    setChordIntervals(getChordsIntervals);
 
     synth.triggerAttackRelease(getChord, '8n');
   }
@@ -191,8 +198,8 @@ function Inner() {
         <div id="chord_type">
           <section id="chord_text">
             <h2 id="chord_type">{chordValue}</h2>
-            <p id="chord_keys">構成音:{chordKeys}</p>
-            <p id="chord_name">{chordName}:-</p>
+            <p id="chord_keys">構成音: {chordKeys}</p>
+            <p id="chord_name">{rootKey}{chordName}: {chordsInterval}</p>
           </section>
           <div id="chord_types">
             <dl>

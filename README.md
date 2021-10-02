@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- id名、CSSなどを整理 [#5](https://github.com/ryo-i/next-app-started/issues/5)
+- 和音の音程を取得してページに表示 [#5](https://github.com/ryo-i/next-app-started/issues/5)
 
 ## 詳細（ブログ）
 

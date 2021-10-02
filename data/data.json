@@ -23,7 +23,7 @@
         "chordTypes": [
             {
               "chordValue": "ルート",
-              "chordName": "R",
+              "chordName": "(R)",
               "chordKeys": [1]
             },
             {
@@ -33,7 +33,7 @@
             },
             {
               "chordValue": "メジャー",
-              "chordName": "M",
+              "chordName": "(M)",
               "chordKeys": [1,5,8]
             },
             {
