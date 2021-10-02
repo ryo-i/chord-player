@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- データをdata.jsonに移動 [#3](https://github.com/ryo-i/next-app-started/issues/3)
+- 構成音の末尾のオクターブ数を削除 [#5](https://github.com/ryo-i/next-app-started/issues/5)
 
 ## 詳細（ブログ）
 

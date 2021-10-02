@@ -143,6 +143,15 @@ function Inner() {
   });
 
 
+  // 鍵盤の構成音のテキスト取得
+  const chordKeysText = (chord) => {
+    let chordKeysText = [];
+    for (let i = 0; i < chord.length; i++) {
+      chordKeysText.push(chord[i].slice(0, -1));
+    }
+    return chordKeysText;
+  };
+
   // 鍵盤クリックイベント
   const clickKey = (e) => {
     const KeyValue = e.target.value;
@@ -155,6 +164,10 @@ function Inner() {
         console.log('getCord', getChord);
       }
     }
+
+    // test
+    const getChordKeysText = chordKeysText(getChord);
+    console.log('getChordKeysText', getChordKeysText);
 
     synth.triggerAttackRelease(getChord, '8n');
   }
