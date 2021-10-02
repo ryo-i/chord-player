@@ -5,12 +5,56 @@ import * as Tone from 'tone';
 
 
 // CSS in JS
-const CoadPlayer = styled.section`
-  h2, #chord_type, #chord_type_text {
-    text-align: center;
+const CoadPlayer = styled.div`
+  #key {
+    background: #333;
+    padding: 10px;
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    .w_key {
+      background: #FFF;
+      border: 1px solid #333;
+      width: 35px;
+      text-align: center;
+      padding:  90px 0 10px;
+      display: inline-block;
+    }
+    .b_key {
+      position: absolute;
+      z-index: 10;
+      top: 10px;
+      margin: 0 -20px;
+      padding: 0;
+      background: #000;
+      border: 1px solid #fff;
+      color: #fff;
+      width: 35px;
+      height: 75px;
+      text-align: center;
+      display: inline-block;
+    }
+    .w_key:hover,
+    .b_key:hover {
+      opacity: 0.7;
+    }
   }
 
-  form {
+  #chord_text {
+    margin: 15px 0;
+    text-align: center;
+    h2 {
+      margin: 0 0 5px;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+    p {
+      margin: 0;
+    }
+  }
+
+  #chord_types {
     margin: 0 auto ;
     max-width: 400px;
     border: 1px solid #ccc;
@@ -20,74 +64,26 @@ const CoadPlayer = styled.section`
       padding: 5px 0 0;
       display: flex;
       margin: 0;
-      :not(:last-child) {
+      &:not(:last-child) {
         border-bottom: 1px solid #eee;
       }
+      dt {
+        font-weight: bold;
+        width: 15%;
+      }
+      dd {
+        margin: 0;
+        display: inline-block;
+        width: 85%;
+        label {
+          margin: 0 10px 10px 0;
+          display: inline-block;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
     }
-    dt {
-      font-weight: bold;
-      width: 15%;
-    }
-    dd {
-      margin: 0;
-      display: inline-block;
-      width: 85%;
-    }
-  }
-
-  label {
-    margin: 0 10px 10px 0;
-    display: inline-block;
-    :hover {
-      cursor: pointer;
-    }
-  }
-
-  #key {
-    background: #333;
-    padding: 10px;
-    width: 300px;
-    display: block;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .w_key {
-    background: #FFF;
-    border: 1px solid #333;
-    width: 35px;
-    text-align: center;
-    padding:  90px 0 10px;
-    display: inline-block;
-  }
-
-  .b_key {
-    position: absolute;
-    z-index: 10;
-    top: 10px;
-    margin: 0 -20px;
-    padding: 0;
-    background: #000;
-    border: 1px solid #fff;
-    color: #fff;
-    width: 35px;
-    height: 75px;
-    text-align: center;
-    display: inline-block;
-  }
-
-  .w_key:hover,
-  .b_key:hover {
-    opacity: 0.7;
-  }
-
-  #chord_type_text {
-    font-size: 20px;
-    margin: 10px 0 0;
-  }
-
-  #chord_keys_text {
-    margin: 0 0 10px;
   }
 `;
 
@@ -177,7 +173,6 @@ function Inner() {
   return (
     <>
       <CoadPlayer>
-        <h2>和音鍵盤</h2>
         <div id="key">
           <button value="C4" className="w_key" onClick={clickKey}>C</button>
           <button value="C#4" className="b_key" onClick={clickKey}></button>
@@ -194,9 +189,12 @@ function Inner() {
           <button value="C5" className="w_key" onClick={clickKey}>C</button>
         </div>
         <div id="chord_type">
-          <p id="chord_type_text">{chordValue}({chordName})</p>
-          <p id="chord_keys_text">構成音:{chordKeys}</p>
-          <form name="chord_types" className="">
+          <section id="chord_text">
+            <h2 id="chord_type">{chordValue}</h2>
+            <p id="chord_keys">構成音:{chordKeys}</p>
+            <p id="chord_name">{chordName}:-</p>
+          </section>
+          <div id="chord_types">
             <dl>
               <dt>根音</dt>
               <dd>
@@ -247,7 +245,7 @@ function Inner() {
                 <label><input type="radio" id="chord_m69" name="chord_type" value="マイナー・シックス・ナインス" onChange={chordTypeSelect} />m69</label>
               </dd>
             </dl>
-          </form>
+          </div>
         </div>
       </CoadPlayer>
     </>

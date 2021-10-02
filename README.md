@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- 構成音の末尾のオクターブ数を削除 [#5](https://github.com/ryo-i/next-app-started/issues/5)
+- id名、CSSなどを整理 [#5](https://github.com/ryo-i/next-app-started/issues/5)
 
 ## 詳細（ブログ）
 
