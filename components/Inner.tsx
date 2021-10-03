@@ -36,9 +36,11 @@ const CoadPlayer = styled.div`
       text-align: center;
       display: inline-block;
     }
+    .w_key:hover,
     .w_key:focus {
       background: #ccc;
     }
+    .b_key:hover,
     .b_key:focus {
       background: #444;
     }
