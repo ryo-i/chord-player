@@ -17,6 +17,7 @@ const CoadPlayer = styled.div`
       background: #FFF;
       border: 1px solid #333;
       width: 35px;
+      color: #000;
       text-align: center;
       padding:  90px 0 10px;
       display: inline-block;
