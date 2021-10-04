@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- 鍵盤の擬似クラスを:hoverと:focusに [#5](https://github.com/ryo-i/next-app-started/issues/5)
+- コードタイプを選択したときにコード音程を変更 [#5](https://github.com/ryo-i/next-app-started/issues/5)
 
 ## 詳細（ブログ）
 

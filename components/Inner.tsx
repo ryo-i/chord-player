@@ -100,6 +100,7 @@ function Inner() {
   const [chordName, setChordName] = useState(inner.chordTypes[0].chordName);
   const [chordKeys, setChordKeys] = useState(inner.chordTypes[0].chordKeys);
   const [chords, setChords] = useState(inner.keys);
+  const [chord, setChord] = useState(['-']);
   const [rootKey, setRootKey] = useState('-');
   const [chordsInterval, setChordIntervals] = useState('-');
 
@@ -118,6 +119,16 @@ function Inner() {
   };
 
 
+  // 鍵盤の構成音のテキスト取得
+  const chordKeysText = (chord) => {
+    let chordKeysText = [];
+    for (let i = 0; i < chord.length; i++) {
+      chordKeysText.push(chord[i].slice(0, -1));
+    }
+    return chordKeysText;
+  };
+
+
   //コードタイプ設定
   const chordTypeSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const getChordValue = e.target.value;
@@ -132,10 +143,25 @@ function Inner() {
         setChordKeys(getchordTypes.chordKeys.join(', '));
       }
     }
+    // console.log('getchordTypes', getchordTypes);
 
     const getThisChords = getChords(getchordTypes);
     setChords(getThisChords);
     // console.log('getThisChords', getThisChords);
+
+    const getRoot = String(chord[0]);
+    // console.log('getRoot', getRoot);
+    let getThisChord;
+    for (let i = 0 ; i < getThisChords.length; i++) {
+      if (getThisChords[i].indexOf(getRoot) === 0) {
+        getThisChord = getThisChords[i];
+        console.log('getThisChord', getThisChord);
+      }
+    }
+
+    const getChordsIntervalsArray = chordKeysText(getThisChord);
+    const getChordsIntervals = getChordsIntervalsArray.join(', ');
+    setChordIntervals(getChordsIntervals);
   }
 
 
@@ -146,19 +172,10 @@ function Inner() {
   });
 
 
-  // 鍵盤の構成音のテキスト取得
-  const chordKeysText = (chord) => {
-    let chordKeysText = [];
-    for (let i = 0; i < chord.length; i++) {
-      chordKeysText.push(chord[i].slice(0, -1));
-    }
-    return chordKeysText;
-  };
-
   // 鍵盤クリックイベント
   const clickKey = (e) => {
     const KeyValue = e.target.value;
-    // console.log('KeyValue', KeyValue);
+    console.log('KeyValue', KeyValue);
 
     let getChord;
     for (let i = 0 ; i < chords.length; i++) {
@@ -167,6 +184,7 @@ function Inner() {
         console.log('getCord', getChord);
       }
     }
+    setChord(getChord);
 
     // 和音の音程を取得
     const getChordsIntervalsArray = chordKeysText(getChord);
