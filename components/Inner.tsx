@@ -36,12 +36,10 @@ const CoadPlayer = styled.div`
       text-align: center;
       display: inline-block;
     }
-    .w_key:hover,
-    .w_key:focus {
+    .w_key.current {
       background: #ccc;
     }
-    .b_key:hover,
-    .b_key:focus {
+    .b_key.current {
       background: #444;
     }
   }
@@ -103,7 +101,6 @@ function Inner() {
   const [chord, setChord] = useState(['-']);
   const [rootKey, setRootKey] = useState('-');
   const [chordsInterval, setChordIntervals] = useState('-');
-  const [activeKey, setActiveKey] = useState(false);
 
 
   //和音
@@ -177,6 +174,8 @@ function Inner() {
   const clickKey = (e) => {
     const KeyValue = e.target.value;
     console.log('KeyValue', KeyValue);
+
+    e.target.classList.add('current');
 
     let getChord;
     for (let i = 0 ; i < chords.length; i++) {
