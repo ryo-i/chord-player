@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- コードタイプを選択したときにコード音程を変更 [#5](https://github.com/ryo-i/next-app-started/issues/5)
+- 黒鍵にも音程を表示 [#5](https://github.com/ryo-i/next-app-started/issues/5)
 
 ## 詳細（ブログ）
 

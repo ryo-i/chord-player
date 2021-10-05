@@ -103,6 +103,7 @@ function Inner() {
   const [chord, setChord] = useState(['-']);
   const [rootKey, setRootKey] = useState('-');
   const [chordsInterval, setChordIntervals] = useState('-');
+  const [activeKey, setActiveKey] = useState(false);
 
 
   //和音
@@ -205,16 +206,16 @@ function Inner() {
       <CoadPlayer>
         <div id="key">
           <button value="C4" className="w_key" onClick={clickKey}>C</button>
-          <button value="C#4" className="b_key" onClick={clickKey}></button>
+          <button value="C#4" className="b_key" onClick={clickKey}>C#</button>
           <button value="D4" className="w_key" onClick={clickKey}>D</button>
-          <button value="D#4" className="b_key" onClick={clickKey}></button>
+          <button value="D#4" className="b_key" onClick={clickKey}>D#</button>
           <button value="E4" className="w_key" onClick={clickKey}>E</button>
           <button value="F4" className="w_key" onClick={clickKey}>F</button>
-          <button value="F#4" className="b_key" onClick={clickKey}></button>
+          <button value="F#4" className="b_key" onClick={clickKey}>F#</button>
           <button value="G4" className="w_key" onClick={clickKey}>G</button>
-          <button value="G#4" className="b_key" onClick={clickKey}></button>
+          <button value="G#4" className="b_key" onClick={clickKey}>G#</button>
           <button value="A4" className="w_key" onClick={clickKey}>A</button>
-          <button value="A#4" className="b_key" onClick={clickKey}></button>
+          <button value="A#4" className="b_key" onClick={clickKey}>A#</button>
           <button value="B4" className="w_key" onClick={clickKey}>B</button>
           <button value="C5" className="w_key" onClick={clickKey}>C</button>
         </div>
