@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect, useRef }  from 'react';
 import styled from 'styled-components';
 import { inner } from '../data/data.json';
 import * as Tone from 'tone';
@@ -101,6 +101,7 @@ function Inner() {
   const [chord, setChord] = useState(['-']);
   const [rootKey, setRootKey] = useState('-');
   const [chordsInterval, setChordIntervals] = useState('-');
+  const keyElement = useRef(null);
 
 
   //和音
@@ -170,11 +171,23 @@ function Inner() {
   });
 
 
+  // 鍵盤リセット
+  const keyReset = () => {
+    const keyElements = keyElement.current.children;
+    for (let i = 0; i < keyElements.length; i++) {
+      if (keyElements[i].classList.contains('current')) {
+        keyElements[i].classList.remove('current');
+      }
+    }
+  };
+
+
   // 鍵盤クリックイベント
   const clickKey = (e) => {
     const KeyValue = e.target.value;
     console.log('KeyValue', KeyValue);
 
+    keyReset();
     e.target.classList.add('current');
 
     let getChord;
@@ -203,7 +216,7 @@ function Inner() {
   return (
     <>
       <CoadPlayer>
-        <div id="key">
+        <div id="key" ref={keyElement}>
           <button value="C4" className="w_key" onClick={clickKey}>C</button>
           <button value="C#4" className="b_key" onClick={clickKey}>C#</button>
           <button value="D4" className="w_key" onClick={clickKey}>D</button>
