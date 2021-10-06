@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- 鍵盤色のリセット設定を追加 [#5](https://github.com/ryo-i/next-app-started/issues/5)
+- リファクタリング：関数切り出しなど [#5](https://github.com/ryo-i/next-app-started/issues/5)
 
 ## 詳細（ブログ）
 

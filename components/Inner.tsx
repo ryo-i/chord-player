@@ -104,7 +104,7 @@ function Inner() {
   const keyElement = useRef(null);
 
 
-  //和音
+  //コード取得
   const getChords = (chordTypes) => {
     let getChords = [];
     for (let i = 0 ; i < inner.keys.length; i++ ) {
@@ -128,37 +128,44 @@ function Inner() {
   };
 
 
+  // コードタイプ取得
+  const getChordTypes = (getChordValue) => {
+    let getchordTypes;
+    for (let i = 0; i < inner.chordTypes.length; i++) {
+      if (inner.chordTypes[i].chordValue === getChordValue) {
+        getchordTypes = inner.chordTypes[i];
+      }
+    }
+    return getchordTypes;
+  };
+
+
+  // 最新のコード取得
+  const getChord = (key, chords) => {
+    let getCurrentChord;
+    for (let i = 0 ; i < chords.length; i++) {
+      if (chords[i].indexOf(key) === 0) {
+        getCurrentChord = chords[i];
+      }
+    }
+    return getCurrentChord;
+  };
+
+
   //コードタイプ設定
   const chordTypeSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const getChordValue = e.target.value;
-    // console.log('getChordValue', getChordValue);
+    const getCurrentChordTypes = getChordTypes(getChordValue);
+    setChordValue(getCurrentChordTypes.chordValue);
+    setChordName(getCurrentChordTypes.chordName);
+    setChordKeys(getCurrentChordTypes.chordKeys.join(', '));
 
-    let getchordTypes;
-    for(let i = 0; i < inner.chordTypes.length; i++){
-      if(inner.chordTypes[i].chordValue === getChordValue) {
-        getchordTypes = inner.chordTypes[i];
-        setChordValue(getchordTypes.chordValue);
-        setChordName(getchordTypes.chordName);
-        setChordKeys(getchordTypes.chordKeys.join(', '));
-      }
-    }
-    // console.log('getchordTypes', getchordTypes);
-
-    const getThisChords = getChords(getchordTypes);
-    setChords(getThisChords);
-    // console.log('getThisChords', getThisChords);
+    const getCurrentChords = getChords(getCurrentChordTypes);
+    setChords(getCurrentChords);
 
     const getRoot = String(chord[0]);
-    // console.log('getRoot', getRoot);
-    let getThisChord;
-    for (let i = 0 ; i < getThisChords.length; i++) {
-      if (getThisChords[i].indexOf(getRoot) === 0) {
-        getThisChord = getThisChords[i];
-        console.log('getThisChord', getThisChord);
-      }
-    }
-
-    const getChordsIntervalsArray = chordKeysText(getThisChord);
+    const getCurrentChord = getChord(getRoot, getCurrentChords);
+    const getChordsIntervalsArray = chordKeysText(getCurrentChord);
     const getChordsIntervals = getChordsIntervalsArray.join(', ');
     setChordIntervals(getChordsIntervals);
   }
@@ -184,31 +191,20 @@ function Inner() {
 
   // 鍵盤クリックイベント
   const clickKey = (e) => {
-    const KeyValue = e.target.value;
-    console.log('KeyValue', KeyValue);
-
     keyReset();
     e.target.classList.add('current');
 
-    let getChord;
-    for (let i = 0 ; i < chords.length; i++) {
-      if (chords[i].indexOf(KeyValue) === 0) {
-        getChord = chords[i];
-        console.log('getCord', getChord);
-      }
-    }
-    setChord(getChord);
+    const KeyValue = e.target.value;
+    let getCurrentChord = getChord(KeyValue, chords);
+    setChord(getCurrentChord);
 
-    // 和音の音程を取得
-    const getChordsIntervalsArray = chordKeysText(getChord);
+    const getChordsIntervalsArray = chordKeysText(getCurrentChord);
     const getRootkey = getChordsIntervalsArray[0];
     const getChordsIntervals = getChordsIntervalsArray.join(', ');
-    // console.log('getRootkey', getRootkey);
-    // console.log('getChordsInterval', getChordsIntervals);
     setRootKey(getRootkey);
     setChordIntervals(getChordsIntervals);
 
-    synth.triggerAttackRelease(getChord, '8n');
+    synth.triggerAttackRelease(getCurrentChord, '8n');
   }
 
 
