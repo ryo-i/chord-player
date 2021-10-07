@@ -207,7 +207,7 @@ function Inner() {
     setChordIntervals(getChordsIntervals);
 
     synth.triggerAttackRelease(getCurrentChord, '8n');
-  }
+  };
 
 
   // JSX

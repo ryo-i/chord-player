@@ -8,7 +8,8 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- コードタイプ変更時に音程がない場合はコード音程取得の処理をしない [#5](https://github.com/ryo-i/next-app-started/issues/5)
+- 連打すると音が濁る問題を検討中 [#6](https://github.com/ryo-i/next-app-started/issues/6)
+- コードを「タララーン」と時差で鳴らす方法を検討中 [#7](https://github.com/ryo-i/next-app-started/issues/7)
 
 ## 詳細（ブログ）
 
