@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- リファクタリング：関数切り出しなど [#5](https://github.com/ryo-i/next-app-started/issues/5)
+- コードタイプ変更時に音程がない場合はコード音程取得の処理をしない [#5](https://github.com/ryo-i/next-app-started/issues/5)
 
 ## 詳細（ブログ）
 

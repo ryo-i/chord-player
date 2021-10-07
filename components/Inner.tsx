@@ -163,11 +163,13 @@ function Inner() {
     const getCurrentChords = getChords(getCurrentChordTypes);
     setChords(getCurrentChords);
 
-    const getRoot = String(chord[0]);
-    const getCurrentChord = getChord(getRoot, getCurrentChords);
-    const getChordsIntervalsArray = chordKeysText(getCurrentChord);
-    const getChordsIntervals = getChordsIntervalsArray.join(', ');
-    setChordIntervals(getChordsIntervals);
+    if (rootKey !== '-') {
+      const getRoot = String(chord[0]);
+      const getCurrentChord = getChord(getRoot, getCurrentChords);
+      const getChordsIntervalsArray = chordKeysText(getCurrentChord);
+      const getChordsIntervals = getChordsIntervalsArray.join(', ');
+      setChordIntervals(getChordsIntervals);
+    }
   }
 
 
@@ -271,7 +273,7 @@ function Inner() {
             <dl>
               <dt>五和音</dt>
               <dd>
-                <label><input type="radio" id="chord_M9" name="chord_type" value="メジャーナインス¥" onChange={chordTypeSelect} />M9</label>
+                <label><input type="radio" id="chord_M9" name="chord_type" value="メジャーナインス" onChange={chordTypeSelect} />M9</label>
                 <label><input type="radio" id="chord_9" name="chord_type" value="ナインス" onChange={chordTypeSelect} />9</label>
                 <label><input type="radio" id="chord_7_f9" name="chord_type" value="セブンス・フラット・ナインス" onChange={chordTypeSelect} />7(-9)</label>
                 <label><input type="radio" id="chord_7_s9" name="chord_type" value="セブンス・シャープ・ナインス" onChange={chordTypeSelect} />7(+9)</label>
