@@ -102,7 +102,7 @@ function Inner() {
   const [rootKey, setRootKey] = useState('-');
   const [chordsInterval, setChordIntervals] = useState('-');
   const keyElement = useRef(null);
-  const keyProcessing = useRef(false);
+  const keyProcessing =  useRef(false);
 
 
   //コード取得
@@ -175,10 +175,9 @@ function Inner() {
 
 
   // シンセ設定
-  let synth;
-  useEffect(() => {
+  /* useEffect(() => {
     synth = new Tone.PolySynth().toDestination();
-  });
+  }); */
 
 
   // 鍵盤リセット
@@ -207,28 +206,18 @@ function Inner() {
     setRootKey(getRootkey);
     setChordIntervals(getChordsIntervals);
 
-    /* Tone.Transport.stop();
-    Tone.Transport.cancel();
-    const part = new Tone.Part(((time) => {
-      synth.triggerAttackRelease(getCurrentChord, 0.5, time);
-    }), [0]).start();
-    Tone.Transport.start(); */
+    e.preventDefault();
+    if (keyProcessing.current) {
+      console.log('ちょっと待ってね♪');
+      return;
+    }
 
-    /* const toneStart = async () => {
-      await Tone.start();
-      console.log("context started");
-      synth = new Tone.PolySynth().toDestination();
-      synth.triggerAttackRelease(getCurrentChord, 0.5);
-    };
+    keyProcessing.current = true;
+    setTimeout(() => {
+      keyProcessing.current = false;
+    }, 500);
 
-    try {
-      toneStart();
-      synth = new Tone.PolySynth().toDestination();
-      synth.triggerAttackRelease(getCurrentChord, 0.5);
-    } catch (error) {
-      console.log('error2 ->', error.message);
-    } */
-
+    const synth = new Tone.PolySynth().toDestination();
     synth.triggerAttackRelease(getCurrentChord, 0.5);
   };
 
