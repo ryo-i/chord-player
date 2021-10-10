@@ -164,6 +164,9 @@ function Inner() {
     const getCurrentChords = getChords(getCurrentChordTypes);
     setChords(getCurrentChords);
 
+    Tone.Transport.stop();
+    Tone.Transport.cancel();
+
     if (rootKey !== '-') {
       const getRoot = String(chord[0]);
       const getCurrentChord = getChord(getRoot, getCurrentChords);
