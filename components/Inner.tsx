@@ -228,7 +228,7 @@ function Inner() {
     const part = new Tone.Part(((time) => {
       synth.triggerAttackRelease(getCurrentChord, 0.5);
       console.log('getCurrentChord', getCurrentChord);
-    }), [0]).start();
+    }), [0]).stop().start();
     Tone.Transport.start();
   };
 
