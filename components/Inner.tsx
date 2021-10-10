@@ -102,6 +102,7 @@ function Inner() {
   const [rootKey, setRootKey] = useState('-');
   const [chordsInterval, setChordIntervals] = useState('-');
   const keyElement = useRef(null);
+  const keyProcessing = useRef(false);
 
 
   //コード取得
@@ -206,7 +207,29 @@ function Inner() {
     setRootKey(getRootkey);
     setChordIntervals(getChordsIntervals);
 
-    synth.triggerAttackRelease(getCurrentChord, '8n');
+    /* Tone.Transport.stop();
+    Tone.Transport.cancel();
+    const part = new Tone.Part(((time) => {
+      synth.triggerAttackRelease(getCurrentChord, 0.5, time);
+    }), [0]).start();
+    Tone.Transport.start(); */
+
+    /* const toneStart = async () => {
+      await Tone.start();
+      console.log("context started");
+      synth = new Tone.PolySynth().toDestination();
+      synth.triggerAttackRelease(getCurrentChord, 0.5);
+    };
+
+    try {
+      toneStart();
+      synth = new Tone.PolySynth().toDestination();
+      synth.triggerAttackRelease(getCurrentChord, 0.5);
+    } catch (error) {
+      console.log('error2 ->', error.message);
+    } */
+
+    synth.triggerAttackRelease(getCurrentChord, 0.5);
   };
 
 
