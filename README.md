@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- シンセの関数名を毎回別名に [#6](https://github.com/ryo-i/next-app-started/issues/6)
+- Tone.Transportの制御をやめてみる [#6](https://github.com/ryo-i/next-app-started/issues/6)
 - コードを「タララーン」と時差で鳴らす方法を検討中 [#7](https://github.com/ryo-i/next-app-started/issues/7)
 
 ## 詳細（ブログ）

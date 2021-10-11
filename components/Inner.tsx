@@ -165,8 +165,8 @@ function Inner() {
     const getCurrentChords = getChords(getCurrentChordTypes);
     setChords(getCurrentChords);
 
-    Tone.Transport.stop();
-    Tone.Transport.cancel();
+    // Tone.Transport.stop();
+    // Tone.Transport.cancel();
 
     if (rootKey !== '-') {
       const getRoot = String(chord[0]);
@@ -207,8 +207,8 @@ function Inner() {
     e.preventDefault();
     if (keyProcessing.current) {
       console.log('ちょっと待ってね♪');
-      Tone.Transport.stop();
-      Tone.Transport.cancel();
+      // Tone.Transport.stop();
+      // Tone.Transport.cancel();
       return;
     }
 
@@ -217,8 +217,8 @@ function Inner() {
       keyProcessing.current = false;
     }, 500);
 
-    Tone.Transport.stop();
-    Tone.Transport.cancel();
+    // Tone.Transport.stop();
+    // Tone.Transport.cancel();
 
 
     const addCount = count + 1;
@@ -230,15 +230,15 @@ function Inner() {
       [synthName]: new Tone.PolySynth().toDestination()
     };
     console.log('getSynth', getSynth);
+    getSynth[synthName].triggerAttackRelease(getCurrentChord, 0.5);
 
-    // const synth = new Tone.PolySynth().toDestination();
+    /* const synth = new Tone.PolySynth().toDestination();
     const part = new Tone.Part(((time) => {
-      // synth.triggerAttackRelease(getCurrentChord, 0.5);
-      getSynth[synthName].triggerAttackRelease(getCurrentChord, 0.5);
-      // console.log('getCurrentChord', getCurrentChord);
+      synth.triggerAttackRelease(getCurrentChord, 0.5);
+      console.log('getCurrentChord', getCurrentChord);
 
     }), [0]).stop().start();
-    Tone.Transport.start();
+    Tone.Transport.start(); */
   };
 
 
