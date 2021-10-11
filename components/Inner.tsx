@@ -218,23 +218,17 @@ function Inner() {
 
     Tone.Transport.stop();
     Tone.Transport.cancel();
-    const synth = new Tone.PolySynth().toDestination();
+    let synth = undefined;
+    console.log('synth1', synth);
+
+    synth = new Tone.PolySynth().toDestination();
     const part = new Tone.Part(((time) => {
       synth.triggerAttackRelease(getCurrentChord, 0.5);
-      console.log('getCurrentChord', getCurrentChord);
+      // console.log('getCurrentChord', getCurrentChord);
+      console.log('synth2', synth);
     }), [0]).stop().start();
     Tone.Transport.start();
   };
-
-
-  // シンセ設定
-  /* useEffect(() => {
-    if (chord[0] !== '-') {
-      console.log('chord', chord);
-      const synth = new Tone.PolySynth().toDestination();
-      synth.triggerAttackRelease(chord, 0.5);
-    }
-  }, [chord]); */
 
 
   // JSX
