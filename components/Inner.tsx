@@ -230,7 +230,7 @@ function Inner() {
       [synthName]: new Tone.PolySynth().toDestination()
     };
     console.log('getSynth', getSynth);
-    getSynth[synthName].triggerAttackRelease(getCurrentChord, 0.5);
+    getSynth[synthName].triggerAttackRelease(getCurrentChord, 0.1);
 
     /* const synth = new Tone.PolySynth().toDestination();
     const part = new Tone.Part(((time) => {
