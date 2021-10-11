@@ -101,9 +101,9 @@ function Inner() {
   const [chord, setChord] = useState(['-']);
   const [rootKey, setRootKey] = useState('-');
   const [chordsInterval, setChordIntervals] = useState('-');
-  const [count, setCount] = useState(0);
   const keyElement = useRef(null);
   const keyProcessing =  useRef(false);
+  const LoadingRef = useRef();
 
 
   //コード取得
@@ -220,17 +220,10 @@ function Inner() {
     // Tone.Transport.stop();
     // Tone.Transport.cancel();
 
-
-    const addCount = count + 1;
-    setCount(addCount);
-    const synthName = 'synth' + count;
-    console.log('synthName', synthName);
-
-    const getSynth = {
-      [synthName]: new Tone.PolySynth().toDestination()
-    };
-    console.log('getSynth', getSynth);
-    getSynth[synthName].triggerAttackRelease(getCurrentChord, 0.1);
+    const synth = new Tone.PolySynth().toDestination();
+    for (let i = 0; i < getCurrentChord.length; i++) {
+      synth.triggerAttackRelease(getCurrentChord[i], 0.4);
+    }
 
     /* const synth = new Tone.PolySynth().toDestination();
     const part = new Tone.Part(((time) => {
