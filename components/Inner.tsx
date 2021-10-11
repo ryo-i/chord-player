@@ -101,6 +101,7 @@ function Inner() {
   const [chord, setChord] = useState(['-']);
   const [rootKey, setRootKey] = useState('-');
   const [chordsInterval, setChordIntervals] = useState('-');
+  const [count, setCount] = useState(0);
   const keyElement = useRef(null);
   const keyProcessing =  useRef(false);
 
@@ -218,14 +219,24 @@ function Inner() {
 
     Tone.Transport.stop();
     Tone.Transport.cancel();
-    let synth = undefined;
-    console.log('synth1', synth);
 
-    synth = new Tone.PolySynth().toDestination();
+
+    const addCount = count + 1;
+    setCount(addCount);
+    const synthName = 'synth' + count;
+    console.log('synthName', synthName);
+
+    const getSynth = {
+      [synthName]: new Tone.PolySynth().toDestination()
+    };
+    console.log('getSynth', getSynth);
+
+    // const synth = new Tone.PolySynth().toDestination();
     const part = new Tone.Part(((time) => {
-      synth.triggerAttackRelease(getCurrentChord, 0.5);
+      // synth.triggerAttackRelease(getCurrentChord, 0.5);
+      getSynth[synthName].triggerAttackRelease(getCurrentChord, 0.5);
       // console.log('getCurrentChord', getCurrentChord);
-      console.log('synth2', synth);
+
     }), [0]).stop().start();
     Tone.Transport.start();
   };
