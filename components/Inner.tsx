@@ -189,10 +189,13 @@ function Inner() {
     }
   };
 
+
+  // シンセ設定
   useEffect(() => {
     setSynth(new Tone.PolySynth().toDestination());
     console.log('synth設定！')
-},[]);
+  },[]);
+
 
   // 鍵盤クリックイベント
   const clickKey = (e) => {
@@ -209,7 +212,7 @@ function Inner() {
     setRootKey(getRootkey);
     setChordIntervals(getChordsIntervals);
 
-    e.preventDefault();
+    /* e.preventDefault();
     if (keyProcessing.current) {
       console.log('ちょっと待ってね♪');
       // Tone.Transport.stop();
@@ -220,7 +223,7 @@ function Inner() {
     keyProcessing.current = true;
     setTimeout(() => {
       keyProcessing.current = false;
-    }, 500);
+    }, 500); */
 
     // Tone.Transport.stop();
     // Tone.Transport.cancel();
