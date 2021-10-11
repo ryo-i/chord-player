@@ -101,6 +101,7 @@ function Inner() {
   const [chord, setChord] = useState(['-']);
   const [rootKey, setRootKey] = useState('-');
   const [chordsInterval, setChordIntervals] = useState('-');
+  const [synth, setSynth] = useState(null);
   const keyElement = useRef(null);
   const keyProcessing =  useRef(false);
   const LoadingRef = useRef();
@@ -188,6 +189,10 @@ function Inner() {
     }
   };
 
+  useEffect(() => {
+    setSynth(new Tone.PolySynth().toDestination());
+    console.log('synth設定！')
+},[]);
 
   // 鍵盤クリックイベント
   const clickKey = (e) => {
@@ -220,10 +225,8 @@ function Inner() {
     // Tone.Transport.stop();
     // Tone.Transport.cancel();
 
-    const synth = new Tone.PolySynth().toDestination();
-    for (let i = 0; i < getCurrentChord.length; i++) {
-      synth.triggerAttackRelease(getCurrentChord[i], 0.4);
-    }
+    // const synth = new Tone.PolySynth().toDestination();
+    synth.triggerAttackRelease(getCurrentChord, 0.4);
 
     /* const synth = new Tone.PolySynth().toDestination();
     const part = new Tone.Part(((time) => {
