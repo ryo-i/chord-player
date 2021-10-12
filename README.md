@@ -8,8 +8,8 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- 連続クリック防止設定をやめてみる [#6](https://github.com/ryo-i/next-app-started/issues/6)
-- コードを「タララーン」と時差で鳴らす方法を検討中 [#7](https://github.com/ryo-i/next-app-started/issues/7)
+- 不要になった行を削除 [#6](https://github.com/ryo-i/next-app-started/issues/6)
+- この機能は今後の課題とする [#7](https://github.com/ryo-i/next-app-started/issues/7)
 
 ## 詳細（ブログ）
 
