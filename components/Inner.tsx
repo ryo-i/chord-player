@@ -94,15 +94,85 @@ const CoadPlayer = styled.div`
 // Component
 function Inner() {
   // Hooks
-  const [chordValue, setChordValue] = useState(inner.chordTypes[0].chordValue);
-  const [chordName, setChordName] = useState(inner.chordTypes[0].chordName);
-  const [chordKeys, setChordKeys] = useState(inner.chordTypes[0].chordKeys);
+  const [synth, setSynth] = useState(null);
   const [chords, setChords] = useState(inner.keys);
   const [chord, setChord] = useState(['-']);
   const [rootKey, setRootKey] = useState('-');
-  const [chordsInterval, setChordIntervals] = useState('-');
-  const [synth, setSynth] = useState(null);
+  const [chordsInterval, setChordInterval] = useState('-');
+  const [chordValue, setChordValue] = useState(inner.chordTypes[0].chordValue);
+  const [chordName, setChordName] = useState(inner.chordTypes[0].chordName);
+  const [chordKeys, setChordKeys] = useState(inner.chordTypes[0].chordKeys);
   const keyElement = useRef(null);
+
+
+  // シンセ設定
+  useEffect(() => {
+    setSynth(new Tone.PolySynth().toDestination());
+  },[]);
+
+
+  // 鍵盤リセット
+  const keyReset = () => {
+    const keyElements = keyElement.current.children;
+    for (let i = 0; i < keyElements.length; i++) {
+      if (keyElements[i].classList.contains('current')) {
+        keyElements[i].classList.remove('current');
+      }
+    }
+  };
+
+
+  // 最新のコード取得
+  const getChord = (key, chords) => {
+    let getCurrentChord;
+    for (let i = 0 ; i < chords.length; i++) {
+      if (chords[i].indexOf(key) === 0) {
+        getCurrentChord = chords[i];
+      }
+    }
+    return getCurrentChord;
+  };
+
+
+  // 鍵盤の構成音のテキスト取得
+  const chordKeysText = (chord) => {
+    let chordKeysText = [];
+    for (let i = 0; i < chord.length; i++) {
+      chordKeysText.push(chord[i].slice(0, -1));
+    }
+    return chordKeysText;
+  };
+
+
+  // 鍵盤クリックイベント
+  const clickKey = (e) => {
+    keyReset();
+    e.target.classList.add('current');
+
+    const KeyValue = e.target.value;
+    let getCurrentChord = getChord(KeyValue, chords);
+    setChord(getCurrentChord);
+
+    const getChordsIntervalsArray = chordKeysText(getCurrentChord);
+    const getRootkey = getChordsIntervalsArray[0];
+    const getChordsIntervals = getChordsIntervalsArray.join(', ');
+    setRootKey(getRootkey);
+    setChordInterval(getChordsIntervals);
+
+    synth.triggerAttackRelease(getCurrentChord, 0.4);
+  };
+
+
+  // コードタイプ取得
+  const getChordTypes = (getChordValue) => {
+    let getchordTypes;
+    for (let i = 0; i < inner.chordTypes.length; i++) {
+      if (inner.chordTypes[i].chordValue === getChordValue) {
+        getchordTypes = inner.chordTypes[i];
+      }
+    }
+    return getchordTypes;
+  };
 
 
   //コード取得
@@ -119,41 +189,7 @@ function Inner() {
   };
 
 
-  // 鍵盤の構成音のテキスト取得
-  const chordKeysText = (chord) => {
-    let chordKeysText = [];
-    for (let i = 0; i < chord.length; i++) {
-      chordKeysText.push(chord[i].slice(0, -1));
-    }
-    return chordKeysText;
-  };
-
-
-  // コードタイプ取得
-  const getChordTypes = (getChordValue) => {
-    let getchordTypes;
-    for (let i = 0; i < inner.chordTypes.length; i++) {
-      if (inner.chordTypes[i].chordValue === getChordValue) {
-        getchordTypes = inner.chordTypes[i];
-      }
-    }
-    return getchordTypes;
-  };
-
-
-  // 最新のコード取得
-  const getChord = (key, chords) => {
-    let getCurrentChord;
-    for (let i = 0 ; i < chords.length; i++) {
-      if (chords[i].indexOf(key) === 0) {
-        getCurrentChord = chords[i];
-      }
-    }
-    return getCurrentChord;
-  };
-
-
-  //コードタイプ設定
+  //コードタイプ変更イベント
   const chordTypeSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const getChordValue = e.target.value;
     const getCurrentChordTypes = getChordTypes(getChordValue);
@@ -169,45 +205,9 @@ function Inner() {
       const getCurrentChord = getChord(getRoot, getCurrentChords);
       const getChordsIntervalsArray = chordKeysText(getCurrentChord);
       const getChordsIntervals = getChordsIntervalsArray.join(', ');
-      setChordIntervals(getChordsIntervals);
+      setChordInterval(getChordsIntervals);
     }
   }
-
-
-  // 鍵盤リセット
-  const keyReset = () => {
-    const keyElements = keyElement.current.children;
-    for (let i = 0; i < keyElements.length; i++) {
-      if (keyElements[i].classList.contains('current')) {
-        keyElements[i].classList.remove('current');
-      }
-    }
-  };
-
-
-  // シンセ設定
-  useEffect(() => {
-    setSynth(new Tone.PolySynth().toDestination());
-  },[]);
-
-
-  // 鍵盤クリックイベント
-  const clickKey = (e) => {
-    keyReset();
-    e.target.classList.add('current');
-
-    const KeyValue = e.target.value;
-    let getCurrentChord = getChord(KeyValue, chords);
-    setChord(getCurrentChord);
-
-    const getChordsIntervalsArray = chordKeysText(getCurrentChord);
-    const getRootkey = getChordsIntervalsArray[0];
-    const getChordsIntervals = getChordsIntervalsArray.join(', ');
-    setRootKey(getRootkey);
-    setChordIntervals(getChordsIntervals);
-
-    synth.triggerAttackRelease(getCurrentChord, 0.4);
-  };
 
 
   // JSX
