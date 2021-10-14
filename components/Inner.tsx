@@ -7,40 +7,50 @@ import * as Tone from 'tone';
 // CSS in JS
 const CoadPlayer = styled.div`
   #key {
-    background: #333;
-    padding: 10px;
-    width: 300px;
-    display: block;
+    width: calc(35px * 8);
     margin: 0 auto;
-    position: relative;
-    .w_key {
-      background: #FFF;
-      border: 1px solid #333;
-      width: 35px;
-      color: #000;
-      text-align: center;
-      padding:  90px 0 10px;
-      display: inline-block;
-    }
-    .b_key {
-      position: absolute;
-      z-index: 10;
-      top: 10px;
-      margin: 0 -20px;
-      padding: 0;
-      background: #000;
-      border: 1px solid #fff;
-      color: #fff;
-      width: 35px;
-      height: 75px;
-      text-align: center;
-      display: inline-block;
-    }
-    .w_key.current {
-      background: #ccc;
-    }
-    .b_key.current {
-      background: #444;
+    overflow-x: scroll;
+    .key_inner {
+      background: #333;
+      width: calc(35px * 15);
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      .w_key {
+        background: #FFF;
+        border: 1px solid #333;
+        width: 35px;
+        color: #000;
+        text-align: center;
+        padding:  90px 0 10px;
+        display: inline-block;
+      }
+      .b_key {
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        margin: 0 -20px;
+        padding: 0;
+        background: #000;
+        border: 1px solid #fff;
+        color: #fff;
+        width: 35px;
+        height: 75px;
+        text-align: center;
+        display: inline-block;
+      }
+      .w_key.current {
+        background: #f2dadd;
+      }
+      .b_key.current {
+        background: #A63744;
+      }
+      .w_key.exclusion {
+        background: #ccc;
+      }
+      .b_key.exclusion {
+        background: #444;
+      }
     }
   }
 
@@ -222,20 +232,35 @@ function Inner() {
   return (
     <>
       <CoadPlayer>
-        <div id="key" ref={keyElement}>
-          <button value="C4" className="w_key" onClick={clickKey}>C</button>
-          <button value="C#4" className="b_key" onClick={clickKey}>C#</button>
-          <button value="D4" className="w_key" onClick={clickKey}>D</button>
-          <button value="D#4" className="b_key" onClick={clickKey}>D#</button>
-          <button value="E4" className="w_key" onClick={clickKey}>E</button>
-          <button value="F4" className="w_key" onClick={clickKey}>F</button>
-          <button value="F#4" className="b_key" onClick={clickKey}>F#</button>
-          <button value="G4" className="w_key" onClick={clickKey}>G</button>
-          <button value="G#4" className="b_key" onClick={clickKey}>G#</button>
-          <button value="A4" className="w_key" onClick={clickKey}>A</button>
-          <button value="A#4" className="b_key" onClick={clickKey}>A#</button>
-          <button value="B4" className="w_key" onClick={clickKey}>B</button>
-          <button value="C5" className="w_key" onClick={clickKey}>C</button>
+        <div id="key">
+          <div className="key_inner" ref={keyElement}>
+            <button value="C4" className="w_key" onClick={clickKey}>C</button>
+            <button value="C#4" className="b_key" onClick={clickKey}>C#</button>
+            <button value="D4" className="w_key" onClick={clickKey}>D</button>
+            <button value="D#4" className="b_key" onClick={clickKey}>D#</button>
+            <button value="E4" className="w_key" onClick={clickKey}>E</button>
+            <button value="F4" className="w_key" onClick={clickKey}>F</button>
+            <button value="F#4" className="b_key" onClick={clickKey}>F#</button>
+            <button value="G4" className="w_key" onClick={clickKey}>G</button>
+            <button value="G#4" className="b_key" onClick={clickKey}>G#</button>
+            <button value="A4" className="w_key" onClick={clickKey}>A</button>
+            <button value="A#4" className="b_key" onClick={clickKey}>A#</button>
+            <button value="B4" className="w_key" onClick={clickKey}>B</button>
+            <button value="C5" className="w_key" onClick={clickKey}>C</button>
+            <button value="C#5" className="b_key exclusion">C#</button>
+            <button value="D5" className="w_key exclusion">D</button>
+            <button value="D#5" className="b_key exclusion">D#</button>
+            <button value="E5" className="w_key exclusion">E</button>
+            <button value="F5" className="w_key exclusion">F</button>
+            <button value="F#5" className="b_key exclusion">F#</button>
+            <button value="G5" className="w_key exclusion">G</button>
+            <button value="G#5" className="b_key exclusion">G#</button>
+            <button value="A5" className="w_key exclusion">A</button>
+            <button value="A#5" className="b_key exclusion">A#</button>
+            <button value="B5" className="w_key exclusion">B</button>
+            <button value="C5" className="w_key exclusion">C</button>
+          </div>
+
         </div>
         <div id="chord_type">
           <section id="chord_text">
