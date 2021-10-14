@@ -5,21 +5,24 @@ import * as Tone from 'tone';
 
 
 // CSS in JS
+const keyWidth = '37px'
+
 const CoadPlayer = styled.div`
+  color: #fff;
   #key {
-    width: calc(35px * 8);
+    max-width: calc(${keyWidth} * 15);
     margin: 0 auto;
     overflow-x: scroll;
     .key_inner {
       background: #333;
-      width: calc(35px * 15);
+      width: calc(${keyWidth} * 15);
       display: block;
-      margin: 0 auto;
+      padding: 0 0 10px;
       position: relative;
       .w_key {
         background: #FFF;
         border: 1px solid #333;
-        width: 35px;
+        width: ${keyWidth};
         color: #000;
         text-align: center;
         padding:  90px 0 10px;
@@ -28,13 +31,14 @@ const CoadPlayer = styled.div`
       .b_key {
         position: absolute;
         z-index: 10;
-        top: 10px;
+        top: 0;
         margin: 0 -20px;
         padding: 0;
         background: #000;
         border: 1px solid #fff;
+        border-top-width: 0;
         color: #fff;
-        width: 35px;
+        width: 40px;
         height: 75px;
         text-align: center;
         display: inline-block;
@@ -60,6 +64,7 @@ const CoadPlayer = styled.div`
     h2 {
       margin: 0 0 5px;
       font-size: 20px;
+      color: #fff;
       line-height: 1.25;
     }
     p {
@@ -70,7 +75,8 @@ const CoadPlayer = styled.div`
   #chord_types {
     margin: 0 auto ;
     max-width: 400px;
-    border: 1px solid #ccc;
+    border: 1px solid #eee;
+    border-radius: 10px;
     padding: 10px 10px 0;
     text-align: left;
     dl {
