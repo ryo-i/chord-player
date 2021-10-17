@@ -10,23 +10,25 @@ const keyWidth = '37px'
 const CoadPlayer = styled.div`
   color: #fff;
   #key {
-    max-width: calc(${keyWidth} * 15);
+    max-width: calc(${keyWidth} * 22);
     margin: 0 auto;
     overflow-x: scroll;
     .key_inner {
       background: #333;
-      width: calc(${keyWidth} * 15);
+      width: calc(${keyWidth} * 22);
       display: block;
       padding: 0 0 10px;
       position: relative;
+      button {
+        width: ${keyWidth};
+        text-align: center;
+        display: inline-block;
+      }
       .w_key {
         background: #FFF;
         border: 1px solid #333;
-        width: ${keyWidth};
         color: #000;
-        text-align: center;
         padding:  90px 0 10px;
-        display: inline-block;
       }
       .b_key {
         position: absolute;
@@ -38,22 +40,19 @@ const CoadPlayer = styled.div`
         border: 1px solid #fff;
         border-top-width: 0;
         color: #fff;
-        width: 40px;
         height: 75px;
-        text-align: center;
-        display: inline-block;
-      }
-      .w_key.current {
-        background: #f2dadd;
-      }
-      .b_key.current {
-        background: #A63744;
       }
       .w_key.exclusion {
         background: #ccc;
       }
       .b_key.exclusion {
         background: #444;
+      }
+      .w_key.current {
+        background: #edced2;
+      }
+      .b_key.current {
+        background: #A63744;
       }
     }
   }
@@ -117,7 +116,7 @@ function Inner() {
   const [chordsInterval, setChordInterval] = useState('-');
   const [chordValue, setChordValue] = useState(inner.chordTypes[0].chordValue);
   const [chordName, setChordName] = useState(inner.chordTypes[0].chordName);
-  const [chordKeys, setChordKeys] = useState(inner.chordTypes[0].chordKeys);
+  const [chordKeys, setChordKeys] = useState(inner.chordTypes[0].chordKeys.join(','));
   const keyElement = useRef<HTMLInputElement>(null);
 
   // オブジェクト型
@@ -134,11 +133,24 @@ function Inner() {
 
 
   // 鍵盤リセット
-  const keyReset = (): void => {
+  const resetKey = (): void => {
     const keyElements: HTMLCollection = keyElement.current.children;
     for (let i = 0; i < keyElements.length; i++) {
       if (keyElements[i].classList.contains('current')) {
         keyElements[i].classList.remove('current');
+      }
+    }
+  };
+
+
+  // 鍵盤カレント
+  const currentKye = (currentChord): void => {
+    const keyElements: HTMLCollection = keyElement.current.children;
+    for (let i = 0; i < keyElements.length; i++) {
+      const getKeyElement: HTMLButtonElement = keyElements[i] as HTMLButtonElement;
+      const keyText: string = getKeyElement.value;
+      if (currentChord.includes(keyText)) {
+        keyElements[i].classList.add('current');
       }
     }
   };
@@ -169,13 +181,13 @@ function Inner() {
 
   // 鍵盤クリックイベント
   const clickKey = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    keyReset();
     const eventTarget: HTMLButtonElement = e.target as HTMLButtonElement;
-    eventTarget.classList.add('current');
-
     const KeyValue: string = eventTarget.value;
     const getCurrentChord: string[] = getChord(KeyValue, chords);
     setChord(getCurrentChord);
+
+    resetKey();
+    currentKye(getCurrentChord);
 
     const getChordsIntervalsArray: string[] = chordKeysText(getCurrentChord);
     const getRootkey: string = getChordsIntervalsArray[0];
@@ -219,7 +231,7 @@ function Inner() {
     const getCurrentChordTypes: chordTypes = getChordTypes(getChordValue);
     setChordValue(getCurrentChordTypes.chordValue);
     setChordName(getCurrentChordTypes.chordName);
-    setChordKeys(getCurrentChordTypes.chordKeys);
+    setChordKeys(getCurrentChordTypes.chordKeys.join(', '));
 
     const getCurrentChords: string[][] = getChords(getCurrentChordTypes);
     setChords(getCurrentChords);
@@ -227,6 +239,10 @@ function Inner() {
     if (rootKey !== '-') {
       const getRoot: string = String(chord[0]);
       const getCurrentChord: string[] = getChord(getRoot, getCurrentChords);
+
+      resetKey();
+      currentKye(getCurrentChord);
+
       const getChordsIntervalsArray: string[] = chordKeysText(getCurrentChord);
       const getChordsIntervals: string = getChordsIntervalsArray.join(', ');
       setChordInterval(getChordsIntervals);
@@ -264,7 +280,18 @@ function Inner() {
             <button value="A5" className="w_key exclusion">A</button>
             <button value="A#5" className="b_key exclusion">A#</button>
             <button value="B5" className="w_key exclusion">B</button>
-            <button value="C5" className="w_key exclusion">C</button>
+            <button value="C6" className="w_key exclusion">C</button>
+            <button value="C#6" className="b_key exclusion">C#</button>
+            <button value="D6" className="w_key exclusion">D</button>
+            <button value="D#6" className="b_key exclusion">D#</button>
+            <button value="E6" className="w_key exclusion">E</button>
+            <button value="F6" className="w_key exclusion">F</button>
+            <button value="F#6" className="b_key exclusion">F#</button>
+            <button value="G6" className="w_key exclusion">G</button>
+            <button value="G#6" className="b_key exclusion">G#</button>
+            <button value="A6" className="w_key exclusion">A</button>
+            <button value="A#6" className="b_key exclusion">A#</button>
+            <button value="B6" className="w_key exclusion">B</button>
           </div>
 
         </div>
