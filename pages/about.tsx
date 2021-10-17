@@ -49,19 +49,38 @@ function About() {
         <Header />
         <Main>
             <h1>{ pageTitle }</h1>
-            <p dangerouslySetInnerHTML={{ __html: pageText }}></p>
+            <p>いろいろなコード（和音）を鍵盤で鳴らしてコードの構成音も確認できるコードプレイヤーです。キー変更による白鍵、黒鍵のズレも直感的に調べることができます。</p>
             <section>
                 <h2>使い方</h2>
                 <section>
-                    <h3>タイトル</h3>
+                    <h3>用途</h3>
                     <p>説明説明説明説明説明説明説明説明</p>
                 </section>
                 <section>
-                    <h3>タイトル</h3>
+                    <h3>キーの変更</h3>
                     <p>説明説明説明説明説明説明説明説明</p>
                 </section>
                 <section>
-                    <h3>タイトル</h3>
+                    <h3>コードの変更</h3>
+                    <p>説明説明説明説明説明説明説明説明</p>
+                </section>
+            </section>
+            <section>
+                <h2>コードの種類</h2>
+                <section>
+                    <h3>根音（ルート）</h3>
+                    <p>説明説明説明説明説明説明説明説明</p>
+                </section>
+                <section>
+                    <h3>三和音（トライアド）</h3>
+                    <p>説明説明説明説明説明説明説明説明</p>
+                </section>
+                <section>
+                    <h3>四和音（セブンスコード）</h3>
+                    <p>説明説明説明説明説明説明説明説明</p>
+                </section>
+                <section>
+                    <h3>五和音（テンションコード）</h3>
                     <p>説明説明説明説明説明説明説明説明</p>
                 </section>
             </section>
