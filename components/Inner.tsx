@@ -10,12 +10,12 @@ const keyWidth = '37px'
 const CoadPlayer = styled.div`
   color: #fff;
   #key {
-    max-width: calc(${keyWidth} * 22);
+    max-width: calc(${keyWidth} * 21);
     margin: 0 auto;
     overflow-x: scroll;
     .key_inner {
       background: #333;
-      width: calc(${keyWidth} * 22);
+      width: calc(${keyWidth} * 21);
       display: block;
       padding: 0 0 10px;
       position: relative;
@@ -120,11 +120,25 @@ function Inner() {
   const keyElement = useRef<HTMLInputElement>(null);
 
 
-  // オブジェクト型
+  // オブジェクト設定
   interface chordTypes {
     chordValue: string;
     chordName: string;
     chordKeys: number[];
+  };
+
+  interface keyButtons {
+    value: string;
+    className: string;
+    onClick: boolean;
+    keyName: string;
+  };
+
+  interface chordTypeButtons {
+    id: string;
+    value: string;
+    cohrdTypeName: string;
+    defaultChecked: boolean;
   };
 
 
@@ -258,9 +272,9 @@ function Inner() {
       <CoadPlayer>
         <div id="key">
           <div className="key_inner" ref={keyElement}>
-            {inner.keyButtons.map((val) =>
+            {inner.keyButtons.map((val: keyButtons) =>
               <button key={val.value} value={val.value} className={val.className}
-              onClick={val.onClick == true ? clickKey : null}>{val.keyName}</button>
+              onClick={val.onClick ? clickKey : null}>{val.keyName}</button>
             )}
           </div>
         </div>
@@ -274,33 +288,36 @@ function Inner() {
             <dl id="root">
               <dt>根音</dt>
               <dd>
-                {inner.chordTypeButtons.root.map((val) =>
+                {inner.chordTypeButtons.root.map((val: chordTypeButtons) =>
                   <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect}
-                  defaultChecked={val.defaultChecked} />{val.cohrdTypeName}</label>
+                  defaultChecked={val.defaultChecked || null} />{val.cohrdTypeName}</label>
                 )}
               </dd>
             </dl>
             <dl id="triad">
               <dt>三和音</dt>
               <dd>
-                {inner.chordTypeButtons.triad.map((val) =>
-                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect} />{val.cohrdTypeName}</label>
+                {inner.chordTypeButtons.triad.map((val: chordTypeButtons) =>
+                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect}
+                  defaultChecked={val.defaultChecked || null} />{val.cohrdTypeName}</label>
                 )}
               </dd>
             </dl>
             <dl id="seventh">
               <dt>四和音</dt>
               <dd>
-                {inner.chordTypeButtons.seventh.map((val) =>
-                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect} />{val.cohrdTypeName}</label>
+                {inner.chordTypeButtons.seventh.map((val: chordTypeButtons) =>
+                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect}
+                  defaultChecked={val.defaultChecked || null} />{val.cohrdTypeName}</label>
                 )}
               </dd>
             </dl>
             <dl id="tension">
               <dt>五和音</dt>
               <dd>
-                {inner.chordTypeButtons.tension.map((val) =>
-                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect} />{val.cohrdTypeName}</label>
+                {inner.chordTypeButtons.tension.map((val: chordTypeButtons) =>
+                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect}
+                  defaultChecked={val.defaultChecked || null} />{val.cohrdTypeName}</label>
                 )}
               </dd>
             </dl>
