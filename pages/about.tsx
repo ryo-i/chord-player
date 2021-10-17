@@ -8,7 +8,7 @@ import Data from '../data/data.json';
 
 const headerTitle = Data.header.title;
 const pageTitle = 'このアプリについて';
-const pageText = 'アプリの概要をここに書く。';
+const pageText = 'いろいろなコード（和音）を鍵盤で鳴らしてコードの構成音も確認できるコードプレイヤーです。キーの変更、和音の変更による違いを調べることができます。';
 const headTitle = pageTitle + ' | ' + headerTitle;
 
 
@@ -49,7 +49,7 @@ function About() {
         <Header />
         <Main>
             <h1>{ pageTitle }</h1>
-            <p>いろいろなコード（和音）を鍵盤で鳴らしてコードの構成音も確認できるコードプレイヤーです。キー変更による白鍵、黒鍵のズレも直感的に調べることができます。</p>
+            <p dangerouslySetInnerHTML={{ __html: pageText }}></p>
             <section>
                 <h2>使い方</h2>
                 <section>

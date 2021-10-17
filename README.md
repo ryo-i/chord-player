@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- Aboutの「用途」を追加 [#10](https://github.com/ryo-i/next-app-started/issues/10)
+- Aboutの概要文を修正 [#10](https://github.com/ryo-i/next-app-started/issues/10)
 - コード音程変更を関数切り出し [#8](https://github.com/ryo-i/next-app-started/issues/8)
 
 ## 詳細（ブログ）
