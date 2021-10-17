@@ -259,7 +259,7 @@ function Inner() {
         <div id="key">
           <div className="key_inner" ref={keyElement}>
             {inner.keyButtons.map((val) =>
-              <button  key={val.value} value={val.value} className={val.className}
+              <button key={val.value} value={val.value} className={val.className}
               onClick={val.onClick == true ? clickKey : null}>{val.keyName}</button>
             )}
           </div>
@@ -271,54 +271,37 @@ function Inner() {
             <p id="chord_name">{rootKey}{chordName}: {chordsInterval}</p>
           </section>
           <div id="chord_types">
-            <dl>
+            <dl id="root">
               <dt>根音</dt>
               <dd>
-                <label><input type="radio" id="chord_R" name="chord_type" value="ルート" onChange={chordTypeSelect} defaultChecked />(R)</label>
-                <label><input type="radio" id="chord_5" name="chord_type" value="パワーコード" onChange={chordTypeSelect} />5</label>
+                {inner.chordTypeButtons.root.map((val) =>
+                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect}
+                  defaultChecked={val.defaultChecked} />{val.cohrdTypeName}</label>
+                )}
               </dd>
             </dl>
-            <dl>
+            <dl id="triad">
               <dt>三和音</dt>
               <dd>
-                <label><input type="radio" id="chord_M" name="chord_type" value="メジャー" onChange={chordTypeSelect} />(M)</label>
-                <label><input type="radio" id="chord_m" name="chord_type" value="マイナー" onChange={chordTypeSelect} />m</label>
-                <label><input type="radio" id="chord_dim" name="chord_type" value="ディミニッシュ" onChange={chordTypeSelect} />dim</label>
-                <label><input type="radio" id="chord_aug" name="chord_type" value="オーギュメント" onChange={chordTypeSelect} />aug</label>
-                <label><input type="radio" id="chord_sus4" name="chord_type" value="サスペンデッド4th" onChange={chordTypeSelect} />sus4</label>
+                {inner.chordTypeButtons.triad.map((val) =>
+                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect} />{val.cohrdTypeName}</label>
+                )}
               </dd>
             </dl>
-            <dl>
+            <dl id="seventh">
               <dt>四和音</dt>
               <dd>
-                <label><input type="radio" id="chord_M7" name="chord_type" value="メジャーセブンス" onChange={chordTypeSelect} />M7</label>
-                <label><input type="radio" id="chord_7" name="chord_type" value="セブンス" onChange={chordTypeSelect} />7</label>
-                <label><input type="radio" id="chord_mM7" name="chord_type" value="マイナー・メジャー・セブンス" onChange={chordTypeSelect} />mM7</label>
-                <label><input type="radio" id="chord_m7" name="chord_type" value="マイナー・セブンス" onChange={chordTypeSelect} />m7</label>
-                <label><input type="radio" id="chord_m7-5" name="chord_type" value="マイナー・セブンス・フラット・ファイブ" onChange={chordTypeSelect} />m7(-5)</label>
-                <label><input type="radio" id="chord_dim7" name="chord_type" value="ディミニッシュ・セブンス" onChange={chordTypeSelect} />dim7</label>
-                <label><input type="radio" id="chord_augM7" name="chord_type" value="オーグメント・メジャー・セブンス" onChange={chordTypeSelect} />augM7</label>
-                <label><input type="radio" id="chord_aug7" name="chord_type" value="オーギュメント・セブンス" onChange={chordTypeSelect} />aug7</label>
-                <label><input type="radio" id="chord_M7sus4" name="chord_type" value="メジャー・セブンス・サスペンデッド4th" onChange={chordTypeSelect} />M7sus4</label>
-                <label><input type="radio" id="chord_7sus4" name="chord_type" value="セブンス・サスペンデッド4th" onChange={chordTypeSelect} />7sus4</label>
-                <label><input type="radio" id="chord_6" name="chord_type" value="シックスス" onChange={chordTypeSelect} />6</label>
-                <label><input type="radio" id="chord_m6" name="chord_type" value="マイナー・シックスス" onChange={chordTypeSelect} />m6</label>
+                {inner.chordTypeButtons.seventh.map((val) =>
+                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect} />{val.cohrdTypeName}</label>
+                )}
               </dd>
             </dl>
-            <dl>
+            <dl id="tension">
               <dt>五和音</dt>
               <dd>
-                <label><input type="radio" id="chord_M9" name="chord_type" value="メジャーナインス" onChange={chordTypeSelect} />M9</label>
-                <label><input type="radio" id="chord_9" name="chord_type" value="ナインス" onChange={chordTypeSelect} />9</label>
-                <label><input type="radio" id="chord_7_f9" name="chord_type" value="セブンス・フラット・ナインス" onChange={chordTypeSelect} />7(-9)</label>
-                <label><input type="radio" id="chord_7_s9" name="chord_type" value="セブンス・シャープ・ナインス" onChange={chordTypeSelect} />7(+9)</label>
-                <label><input type="radio" id="chord_m7_11" name="chord_type" value="マイナー・セブンス・イレブンス" onChange={chordTypeSelect} />m7(11)</label>
-                <label><input type="radio" id="chord_7_s11" name="chord_type" value="セブンス・シャープ・イレブンス" onChange={chordTypeSelect} />7(+11)</label>
-                <label><input type="radio" id="chord_M7_13" name="chord_type" value="メジャー・セブンス・サーティーンズ" onChange={chordTypeSelect} />M7(13)</label>
-                <label><input type="radio" id="chord_M7_13" name="chord_type" value="セブンス・サーティーンズ" onChange={chordTypeSelect} />7(13)</label>
-                <label><input type="radio" id="chord_M7_f13" name="chord_type" value="セブンス・フラット・サーティーンズ" onChange={chordTypeSelect} />7(-13)</label>
-                <label><input type="radio" id="chord_69" name="chord_type" value="シックス・ナインス" onChange={chordTypeSelect} />69</label>
-                <label><input type="radio" id="chord_m69" name="chord_type" value="マイナー・シックス・ナインス" onChange={chordTypeSelect} />m69</label>
+                {inner.chordTypeButtons.tension.map((val) =>
+                  <label key={val.id}><input key={val.id} type="radio" id={val.id} name="chord_type" value={val.value} onChange={chordTypeSelect} />{val.cohrdTypeName}</label>
+                )}
               </dd>
             </dl>
           </div>

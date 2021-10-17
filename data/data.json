@@ -1,215 +1,255 @@
 {
     "head": {
-        "url": "https://chord-player.vercel.app/"
+      "url": "https://chord-player.vercel.app/"
     },
     "header": {
-        "title":"コードプレイヤー",
-        "text": "いろいろなコード（和音）を鍵盤で鳴らして構成音も確認できます。"
+      "title":"コードプレイヤー",
+      "text": "いろいろなコード（和音）を鍵盤で鳴らして構成音も確認できます。"
     },
     "main": {
-        "title":"メインページです",
-        "text": "メインページのテキストです。テキストですったらテキストです。"
+      "title":"メインページです",
+      "text": "メインページのテキストです。テキストですったらテキストです。"
     },
     "inner": {
-        "keys": [
-            ["C4"], ["C#4"], ["D4"], ["D#4"], ["E4"], ["F4"], ["F#4"], ["G4"], ["G#4"], ["A4"], ["A#4"], ["B4"], ["C5"]
+      "keys": [
+          ["C4"], ["C#4"], ["D4"], ["D#4"], ["E4"], ["F4"], ["F#4"], ["G4"], ["G#4"], ["A4"], ["A#4"], ["B4"], ["C5"]
+      ],
+      "keyButtons": [
+        {"value": "C4" , "className": "w_key" , "onClick": true, "keyName": "C"},
+        {"value": "C#4" , "className": "b_key" , "onClick": true, "keyName": "C#"},
+        {"value": "D4" , "className": "w_key" , "onClick": true, "keyName": "D"},
+        {"value": "D#4" , "className": "b_key" , "onClick": true, "keyName": "D#"},
+        {"value": "E4" , "className": "w_key" , "onClick": true, "keyName": "E"},
+        {"value": "F4" , "className": "w_key" , "onClick": true, "keyName": "F"},
+        {"value": "F#4" , "className": "b_key" , "onClick": true, "keyName": "F#"},
+        {"value": "G4" , "className": "w_key" , "onClick": true, "keyName": "G"},
+        {"value": "G#4" , "className": "b_key" , "onClick": true, "keyName": "G#"},
+        {"value": "A4" , "className": "w_key" , "onClick": true, "keyName": "A"},
+        {"value": "A#4" , "className": "b_key" , "onClick": true, "keyName": "A#"},
+        {"value": "B4" , "className": "w_key" , "onClick": true, "keyName": "B"},
+        {"value": "C5" , "className": "w_key" , "onClick": true, "keyName": "C"},
+        {"value": "C#5" , "className": "b_key exclusion", "onClick": false, "keyName": "C#"},
+        {"value": "D5" , "className": "w_key exclusion", "onClick": false, "keyName": "D"},
+        {"value": "D#5" , "className": "b_key exclusion", "onClick": false, "keyName": "D#"},
+        {"value": "E5" , "className": "w_key exclusion", "onClick": false, "keyName": "E"},
+        {"value": "F5" , "className": "w_key exclusion", "onClick": false, "keyName": "F"},
+        {"value": "F#5" , "className": "b_key exclusion", "onClick": false, "keyName": "F#"},
+        {"value": "G5" , "className": "w_key exclusion", "onClick": false, "keyName": "G"},
+        {"value": "G#5" , "className": "b_key exclusion", "onClick": false, "keyName": "G#"},
+        {"value": "A5" , "className": "w_key exclusion", "onClick": false, "keyName": "A"},
+        {"value": "A#5" , "className": "b_key exclusion", "onClick": false, "keyName": "A#"},
+        {"value": "B5" , "className": "w_key exclusion", "onClick": false, "keyName": "B"},
+        {"value": "C6" , "className": "w_key exclusion", "onClick": false, "keyName": "C"},
+        {"value": "C#6" , "className": "b_key exclusion", "onClick": false, "keyName": "C#"},
+        {"value": "D6" , "className": "w_key exclusion", "onClick": false, "keyName": "D"},
+        {"value": "D#6" , "className": "b_key exclusion", "onClick": false, "keyName": "D#"},
+        {"value": "E6" , "className": "w_key exclusion", "onClick": false, "keyName": "E"},
+        {"value": "F6" , "className": "w_key exclusion", "onClick": false, "keyName": "F"},
+        {"value": "F#6" , "className": "b_key exclusion", "onClick": false, "keyName": "F#"},
+        {"value": "G6" , "className": "w_key exclusion", "onClick": false, "keyName": "G"},
+        {"value": "G#6" , "className": "b_key exclusion", "onClick": false, "keyName": "G#"},
+        {"value": "A6" , "className": "w_key exclusion", "onClick": false, "keyName": "A"},
+        {"value": "A#6" , "className": "b_key exclusion", "onClick": false, "keyName": "A#"},
+        {"value": "B6" , "className": "w_key exclusion", "onClick": false, "keyName": "B"}
+      ],
+      "scale": [
+          "null",
+          "C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4",
+          "C5", "C#5", "D5", "D#5", "E5", "F5", "F#5", "G5", "G#5", "A5", "A#5", "B5",
+          "C6", "C#6", "D6", "D#6", "E6", "F6", "F#6", "G6", "G#6", "A6", "A#6", "B6"
+      ],
+      "chordTypes": [
+          {
+            "chordValue": "ルート",
+            "chordName": "(R)",
+            "chordKeys": [1]
+          },
+          {
+            "chordValue": "パワーコード",
+            "chordName": "5",
+            "chordKeys": [1,8]
+          },
+          {
+            "chordValue": "メジャー",
+            "chordName": "(M)",
+            "chordKeys": [1,5,8]
+          },
+          {
+            "chordValue": "マイナー",
+            "chordName": "m",
+            "chordKeys": [1,4,8]
+          },
+          {
+            "chordValue": "ディミニッシュ",
+            "chordName": "dim",
+            "chordKeys": [1,4,7]
+          },
+          {
+            "chordValue": "オーギュメント",
+            "chordName": "aug",
+            "chordKeys": [1,5,9]
+          },
+          {
+            "chordValue": "サスペンデッド4th",
+            "chordName": "sus4",
+            "chordKeys": [1,6,8]
+          },
+          {
+            "chordValue": "メジャーセブンス",
+            "chordName": "M7",
+            "chordKeys": [1,5,8,12]
+          },
+          {
+            "chordValue": "セブンス",
+            "chordName": "7",
+            "chordKeys": [1,5,8,11]
+          },
+          {
+            "chordValue": "マイナー・メジャー・セブンス",
+            "chordName": "mM7",
+            "chordKeys": [1,4,8,12]
+          },
+          {
+            "chordValue": "マイナー・セブンス",
+            "chordName": "m7",
+            "chordKeys": [1,4,8,11]
+          },
+          {
+            "chordValue": "マイナー・セブンス・フラット・ファイブ",
+            "chordName": "m7(-5)",
+            "chordKeys": [1,4,7,11]
+          },
+          {
+            "chordValue": "ディミニッシュ・セブンス",
+            "chordName": "dim7",
+            "chordKeys": [1,4,7,10]
+          },
+          {
+            "chordValue": "オーグメント・メジャー・セブンス",
+            "chordName": "augM7",
+            "chordKeys": [1,5,9,12]
+          },
+          {
+            "chordValue": "オーギュメント・セブンス",
+            "chordName": "aug7",
+            "chordKeys": [1,5,9,11]
+          },
+          {
+            "chordValue": "メジャー・セブンス・サスペンデッド4th",
+            "chordName": "M7sus4",
+            "chordKeys": [1,6,8,12]
+          },
+          {
+            "chordValue": "セブンス・サスペンデッド4th",
+            "chordName": "7sus4",
+            "chordKeys": [1,6,8,11]
+          },
+          {
+            "chordValue": "シックスス",
+            "chordName": "6",
+            "chordKeys": [1,5,8,10]
+          },
+          {
+            "chordValue": "マイナー・シックスス",
+            "chordName": "m6",
+            "chordKeys": [1,4,8,10]
+          },
+          {
+            "chordValue": "メジャーナインス",
+            "chordName": "M9",
+            "chordKeys": [1,5,8,12,15]
+          },
+          {
+            "chordValue": "ナインス",
+            "chordName": "9",
+            "chordKeys": [1,5,8,11,15]
+          },
+          {
+            "chordValue": "セブンス・フラット・ナインス",
+            "chordName": "7(-9)",
+            "chordKeys": [1,5,8,11,14]
+          },
+          {
+            "chordValue": "セブンス・シャープ・ナインス",
+            "chordName": "7(+9)",
+            "chordKeys": [1,5,8,11,16]
+          },
+          {
+            "chordValue": "マイナー・セブンス・イレブンス",
+            "chordName": "m7(11)",
+            "chordKeys": [1,4,8,11,18]
+          },
+          {
+            "chordValue": "セブンス・シャープ・イレブンス",
+            "chordName": "7(+11)",
+            "chordKeys": [1,5,8,11,19]
+          },
+          {
+            "chordValue": "メジャー・セブンス・サーティーンズ",
+            "chordName": "M7(13)",
+            "chordKeys": [1,5,8,12,22]
+          },
+          {
+            "chordValue": "セブンス・サーティーンズ",
+            "chordName": "7(13)",
+            "chordKeys": [1,5,8,11,22]
+          },
+          {
+            "chordValue": "セブンス・フラット・サーティーンズ",
+            "chordName": "7(-13)",
+            "chordKeys": [1,5,8,11,21]
+          },
+          {
+            "chordValue": "シックス・ナインス",
+            "chordName": "69",
+            "chordKeys": [1,5,8,10,15]
+          },
+          {
+            "chordValue": "マイナー・シックス・ナインス",
+            "chordName": "m69",
+            "chordKeys": [1,4,8,10,15]
+          }
+      ],
+      "chordTypeButtons": {
+        "root": [
+          {"id": "chord_R", "value": "ルート", "cohrdTypeName": "(R)", "defaultChecked": true},
+          {"id": "chord_5", "value": "パワーコード", "cohrdTypeName": "5"}
         ],
-        "keyButtons": [
-          {"value": "C4" , "className": "w_key" , "onClick": true, "keyName": "C"},
-          {"value": "C#4" , "className": "b_key" , "onClick": true, "keyName": "C#"},
-          {"value": "D4" , "className": "w_key" , "onClick": true, "keyName": "D"},
-          {"value": "D#4" , "className": "b_key" , "onClick": true, "keyName": "D#"},
-          {"value": "E4" , "className": "w_key" , "onClick": true, "keyName": "E"},
-          {"value": "F4" , "className": "w_key" , "onClick": true, "keyName": "F"},
-          {"value": "F#4" , "className": "b_key" , "onClick": true, "keyName": "F#"},
-          {"value": "G4" , "className": "w_key" , "onClick": true, "keyName": "G"},
-          {"value": "G#4" , "className": "b_key" , "onClick": true, "keyName": "G#"},
-          {"value": "A4" , "className": "w_key" , "onClick": true, "keyName": "A"},
-          {"value": "A#4" , "className": "b_key" , "onClick": true, "keyName": "A#"},
-          {"value": "B4" , "className": "w_key" , "onClick": true, "keyName": "B"},
-          {"value": "C5" , "className": "w_key" , "onClick": true, "keyName": "C"},
-          {"value": "C#5" , "className": "b_key exclusion", "onClick": false, "keyName": "C#"},
-          {"value": "D5" , "className": "w_key exclusion", "onClick": false, "keyName": "D"},
-          {"value": "D#5" , "className": "b_key exclusion", "onClick": false, "keyName": "D#"},
-          {"value": "E5" , "className": "w_key exclusion", "onClick": false, "keyName": "E"},
-          {"value": "F5" , "className": "w_key exclusion", "onClick": false, "keyName": "F"},
-          {"value": "F#5" , "className": "b_key exclusion", "onClick": false, "keyName": "F#"},
-          {"value": "G5" , "className": "w_key exclusion", "onClick": false, "keyName": "G"},
-          {"value": "G#5" , "className": "b_key exclusion", "onClick": false, "keyName": "G#"},
-          {"value": "A5" , "className": "w_key exclusion", "onClick": false, "keyName": "A"},
-          {"value": "A#5" , "className": "b_key exclusion", "onClick": false, "keyName": "A#"},
-          {"value": "B5" , "className": "w_key exclusion", "onClick": false, "keyName": "B"},
-          {"value": "C6" , "className": "w_key exclusion", "onClick": false, "keyName": "C"},
-          {"value": "C#6" , "className": "b_key exclusion", "onClick": false, "keyName": "C#"},
-          {"value": "D6" , "className": "w_key exclusion", "onClick": false, "keyName": "D"},
-          {"value": "D#6" , "className": "b_key exclusion", "onClick": false, "keyName": "D#"},
-          {"value": "E6" , "className": "w_key exclusion", "onClick": false, "keyName": "E"},
-          {"value": "F6" , "className": "w_key exclusion", "onClick": false, "keyName": "F"},
-          {"value": "F#6" , "className": "b_key exclusion", "onClick": false, "keyName": "F#"},
-          {"value": "G6" , "className": "w_key exclusion", "onClick": false, "keyName": "G"},
-          {"value": "G#6" , "className": "b_key exclusion", "onClick": false, "keyName": "G#"},
-          {"value": "A6" , "className": "w_key exclusion", "onClick": false, "keyName": "A"},
-          {"value": "A#6" , "className": "b_key exclusion", "onClick": false, "keyName": "A#"},
-          {"value": "B6" , "className": "w_key exclusion", "onClick": false, "keyName": "B"}
+        "triad": [
+          {"id": "chord_M", "value": "メジャー", "cohrdTypeName": "(M)"},
+          {"id": "chord_m", "value": "マイナー", "cohrdTypeName": "m"},
+          {"id": "chord_dim", "value": "ディミニッシュ", "cohrdTypeName": "dim"},
+          {"id": "chord_aug", "value": "オーギュメント", "cohrdTypeName": "aug"},
+          {"id": "chord_sus4", "value": "サスペンデッド4th", "cohrdTypeName": "sus4"}
         ],
-        "scale": [
-            "null",
-            "C4", "C#4", "D4", "D#4", "E4", "F4", "F#4", "G4", "G#4", "A4", "A#4", "B4",
-            "C5", "C#5", "D5", "D#5", "E5", "F5", "F#5", "G5", "G#5", "A5", "A#5", "B5",
-            "C6", "C#6", "D6", "D#6", "E6", "F6", "F#6", "G6", "G#6", "A6", "A#6", "B6"
+        "seventh": [
+           {"id": "chord_M7", "value": "メジャーセブンス", "cohrdTypeName": "M7"},
+           {"id": "chord_7", "value": "セブンス", "cohrdTypeName": "7"},
+           {"id": "chord_mM7", "value": "マイナー・メジャー・セブンス", "cohrdTypeName": "mM7"},
+           {"id": "chord_m7", "value": "マイナー・セブンス", "cohrdTypeName": "m7"},
+           {"id": "chord_m7-5", "value": "マイナー・セブンス・フラット・ファイブ", "cohrdTypeName": "m7(-5)"},
+           {"id": "chord_dim7", "value": "ディミニッシュ・セブンス", "cohrdTypeName": "dim7"},
+           {"id": "chord_augM7", "value": "オーグメント・メジャー・セブンス", "cohrdTypeName": "augM7"},
+           {"id": "chord_aug7", "value": "オーギュメント・セブンス", "cohrdTypeName": "aug7"},
+           {"id": "chord_M7sus4", "value": "メジャー・セブンス・サスペンデッド4th", "cohrdTypeName": "M7sus4"},
+           {"id": "chord_7sus4", "value": "セブンス・サスペンデッド4th", "cohrdTypeName": "7sus4"},
+           {"id": "chord_6", "value": "シックスス", "cohrdTypeName": "6"},
+           {"id": "chord_m6", "value": "マイナー・シックスス", "cohrdTypeName": "m6"}
         ],
-        "chordTypes": [
-            {
-              "chordValue": "ルート",
-              "chordName": "(R)",
-              "chordKeys": [1]
-            },
-            {
-              "chordValue": "パワーコード",
-              "chordName": "5",
-              "chordKeys": [1,8]
-            },
-            {
-              "chordValue": "メジャー",
-              "chordName": "(M)",
-              "chordKeys": [1,5,8]
-            },
-            {
-              "chordValue": "マイナー",
-              "chordName": "m",
-              "chordKeys": [1,4,8]
-            },
-            {
-              "chordValue": "ディミニッシュ",
-              "chordName": "dim",
-              "chordKeys": [1,4,7]
-            },
-            {
-              "chordValue": "オーギュメント",
-              "chordName": "aug",
-              "chordKeys": [1,5,9]
-            },
-            {
-              "chordValue": "サスペンデッド4th",
-              "chordName": "sus4",
-              "chordKeys": [1,6,8]
-            },
-            {
-              "chordValue": "メジャーセブンス",
-              "chordName": "M7",
-              "chordKeys": [1,5,8,12]
-            },
-            {
-              "chordValue": "セブンス",
-              "chordName": "7",
-              "chordKeys": [1,5,8,11]
-            },
-            {
-              "chordValue": "マイナー・メジャー・セブンス",
-              "chordName": "mM7",
-              "chordKeys": [1,4,8,12]
-            },
-            {
-              "chordValue": "マイナー・セブンス",
-              "chordName": "m7",
-              "chordKeys": [1,4,8,11]
-            },
-            {
-              "chordValue": "マイナー・セブンス・フラット・ファイブ",
-              "chordName": "m7(-5)",
-              "chordKeys": [1,4,7,11]
-            },
-            {
-              "chordValue": "ディミニッシュ・セブンス",
-              "chordName": "dim7",
-              "chordKeys": [1,4,7,10]
-            },
-            {
-              "chordValue": "オーグメント・メジャー・セブンス",
-              "chordName": "augM7",
-              "chordKeys": [1,5,9,12]
-            },
-            {
-              "chordValue": "オーギュメント・セブンス",
-              "chordName": "aug7",
-              "chordKeys": [1,5,9,11]
-            },
-            {
-              "chordValue": "メジャー・セブンス・サスペンデッド4th",
-              "chordName": "M7sus4",
-              "chordKeys": [1,6,8,12]
-            },
-            {
-              "chordValue": "セブンス・サスペンデッド4th",
-              "chordName": "7sus4",
-              "chordKeys": [1,6,8,11]
-            },
-            {
-              "chordValue": "シックスス",
-              "chordName": "6",
-              "chordKeys": [1,5,8,10]
-            },
-            {
-              "chordValue": "マイナー・シックスス",
-              "chordName": "m6",
-              "chordKeys": [1,4,8,10]
-            },
-            {
-              "chordValue": "メジャーナインス",
-              "chordName": "M9",
-              "chordKeys": [1,5,8,12,15]
-            },
-            {
-              "chordValue": "ナインス",
-              "chordName": "9",
-              "chordKeys": [1,5,8,11,15]
-            },
-            {
-              "chordValue": "セブンス・フラット・ナインス",
-              "chordName": "7(-9)",
-              "chordKeys": [1,5,8,11,14]
-            },
-            {
-              "chordValue": "セブンス・シャープ・ナインス",
-              "chordName": "7(+9)",
-              "chordKeys": [1,5,8,11,16]
-            },
-            {
-              "chordValue": "マイナー・セブンス・イレブンス",
-              "chordName": "m7(11)",
-              "chordKeys": [1,4,8,11,18]
-            },
-            {
-              "chordValue": "セブンス・シャープ・イレブンス",
-              "chordName": "7(+11)",
-              "chordKeys": [1,5,8,11,19]
-            },
-            {
-              "chordValue": "メジャー・セブンス・サーティーンズ",
-              "chordName": "M7(13)",
-              "chordKeys": [1,5,8,12,22]
-            },
-            {
-              "chordValue": "セブンス・サーティーンズ",
-              "chordName": "7(13)",
-              "chordKeys": [1,5,8,11,22]
-            },
-            {
-              "chordValue": "セブンス・フラット・サーティーンズ",
-              "chordName": "7(-13)",
-              "chordKeys": [1,5,8,11,21]
-            },
-            {
-              "chordValue": "シックス・ナインス",
-              "chordName": "69",
-              "chordKeys": [1,5,8,10,15]
-            },
-            {
-              "chordValue": "マイナー・シックス・ナインス",
-              "chordName": "m69",
-              "chordKeys": [1,4,8,10,15]
-            }
+        "tension": [
+           {"id": "chord_M9", "value": "メジャーナインス", "cohrdTypeName": "M9"},
+           {"id": "chord_9", "value": "ナインス", "cohrdTypeName": "9"},
+           {"id": "chord_7_f9", "value": "セブンス・フラット・ナインス", "cohrdTypeName": "7(-9)"},
+           {"id": "chord_7_s9", "value": "セブンス・シャープ・ナインス", "cohrdTypeName": "7(+9)"},
+           {"id": "chord_m7_11", "value": "マイナー・セブンス・イレブンス", "cohrdTypeName": "m7(11)"},
+           {"id": "chord_7_s11", "value": "セブンス・シャープ・イレブンス", "cohrdTypeName": "7(+11)"},
+           {"id": "chord_M7_13", "value": "メジャー・セブンス・サーティーンズ", "cohrdTypeName": "M7(13)"},
+           {"id": "chord_7_13", "value": "セブンス・サーティーンズ", "cohrdTypeName": "7(13)"},
+           {"id": "chord_M7_f13", "value": "セブンス・フラット・サーティーンズ", "cohrdTypeName": "7(-13)"},
+           {"id": "chord_69", "value": "シックス・ナインス", "cohrdTypeName": "69"},
+           {"id": "chord_m69", "value": "マイナー・シックス・ナインス", "cohrdTypeName": "m69"}
         ]
+      }
     },
     "footer": {
         "text": "©️ イイダリョウ"

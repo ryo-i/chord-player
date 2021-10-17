@@ -8,8 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- 鍵盤数が増えてきたのでループで生成する [#9](https://github.com/ryo-i/next-app-started/issues/9)
-- TypeScriptの型追加 [#8](https://github.com/ryo-i/next-app-started/issues/8)
+- コード選択ボタンをループで生成 [#8](https://github.com/ryo-i/next-app-started/issues/8)
 
 ## 詳細（ブログ）
 
