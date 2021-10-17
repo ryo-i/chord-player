@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- 連想配列のキー存在チェックで分岐処理 [#8](https://github.com/ryo-i/next-app-started/issues/8)
+- コード音程変更を関数切り出し [#8](https://github.com/ryo-i/next-app-started/issues/8)
 
 ## 詳細（ブログ）
 

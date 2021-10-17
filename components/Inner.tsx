@@ -201,7 +201,6 @@ function Inner() {
     const KeyValue: string = eventTarget.value;
     const getCurrentChord: string[] = getChord(KeyValue, chords);
     setChord(getCurrentChord);
-
     resetKey();
     currentKye(getCurrentChord);
 
@@ -241,6 +240,19 @@ function Inner() {
   };
 
 
+  // コード構成音変更
+  const changeChordInterval = (currentChords: string[][]): void => {
+    const getRoot: string = String(chord[0]);
+    const getCurrentChord: string[] = getChord(getRoot, currentChords);
+    resetKey();
+    currentKye(getCurrentChord);
+
+    const getChordsIntervalsArray: string[] = chordKeysText(getCurrentChord);
+    const getChordsIntervals: string = getChordsIntervalsArray.join(', ');
+    setChordInterval(getChordsIntervals);
+  };
+
+
   //コードタイプ変更イベント
   const chordTypeSelect = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const getChordValue: string = e.target.value;
@@ -251,17 +263,8 @@ function Inner() {
 
     const getCurrentChords: string[][] = getChords(getCurrentChordTypes);
     setChords(getCurrentChords);
-
     if (rootKey !== '-') {
-      const getRoot: string = String(chord[0]);
-      const getCurrentChord: string[] = getChord(getRoot, getCurrentChords);
-
-      resetKey();
-      currentKye(getCurrentChord);
-
-      const getChordsIntervalsArray: string[] = chordKeysText(getCurrentChord);
-      const getChordsIntervals: string = getChordsIntervalsArray.join(', ');
-      setChordInterval(getChordsIntervals);
+      changeChordInterval(getCurrentChords);
     }
   }
 
