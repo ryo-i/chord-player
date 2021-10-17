@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- ルート音だけでなくコードの構成音すべての鍵盤を色を変える [#9](https://github.com/ryo-i/next-app-started/issues/9)
+- 鍵盤数が増えてきたのでループで生成する [#9](https://github.com/ryo-i/next-app-started/issues/9)
 - TypeScriptの型追加 [#8](https://github.com/ryo-i/next-app-started/issues/8)
 
 ## 詳細（ブログ）

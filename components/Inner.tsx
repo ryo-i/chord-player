@@ -119,12 +119,14 @@ function Inner() {
   const [chordKeys, setChordKeys] = useState(inner.chordTypes[0].chordKeys.join(','));
   const keyElement = useRef<HTMLInputElement>(null);
 
+
   // オブジェクト型
   interface chordTypes {
     chordValue: string;
     chordName: string;
     chordKeys: number[];
   };
+
 
   // シンセ設定
   useEffect(() => {
@@ -256,44 +258,11 @@ function Inner() {
       <CoadPlayer>
         <div id="key">
           <div className="key_inner" ref={keyElement}>
-            <button value="C4" className="w_key" onClick={clickKey}>C</button>
-            <button value="C#4" className="b_key" onClick={clickKey}>C#</button>
-            <button value="D4" className="w_key" onClick={clickKey}>D</button>
-            <button value="D#4" className="b_key" onClick={clickKey}>D#</button>
-            <button value="E4" className="w_key" onClick={clickKey}>E</button>
-            <button value="F4" className="w_key" onClick={clickKey}>F</button>
-            <button value="F#4" className="b_key" onClick={clickKey}>F#</button>
-            <button value="G4" className="w_key" onClick={clickKey}>G</button>
-            <button value="G#4" className="b_key" onClick={clickKey}>G#</button>
-            <button value="A4" className="w_key" onClick={clickKey}>A</button>
-            <button value="A#4" className="b_key" onClick={clickKey}>A#</button>
-            <button value="B4" className="w_key" onClick={clickKey}>B</button>
-            <button value="C5" className="w_key" onClick={clickKey}>C</button>
-            <button value="C#5" className="b_key exclusion">C#</button>
-            <button value="D5" className="w_key exclusion">D</button>
-            <button value="D#5" className="b_key exclusion">D#</button>
-            <button value="E5" className="w_key exclusion">E</button>
-            <button value="F5" className="w_key exclusion">F</button>
-            <button value="F#5" className="b_key exclusion">F#</button>
-            <button value="G5" className="w_key exclusion">G</button>
-            <button value="G#5" className="b_key exclusion">G#</button>
-            <button value="A5" className="w_key exclusion">A</button>
-            <button value="A#5" className="b_key exclusion">A#</button>
-            <button value="B5" className="w_key exclusion">B</button>
-            <button value="C6" className="w_key exclusion">C</button>
-            <button value="C#6" className="b_key exclusion">C#</button>
-            <button value="D6" className="w_key exclusion">D</button>
-            <button value="D#6" className="b_key exclusion">D#</button>
-            <button value="E6" className="w_key exclusion">E</button>
-            <button value="F6" className="w_key exclusion">F</button>
-            <button value="F#6" className="b_key exclusion">F#</button>
-            <button value="G6" className="w_key exclusion">G</button>
-            <button value="G#6" className="b_key exclusion">G#</button>
-            <button value="A6" className="w_key exclusion">A</button>
-            <button value="A#6" className="b_key exclusion">A#</button>
-            <button value="B6" className="w_key exclusion">B</button>
+            {inner.keyButtons.map((val) =>
+              <button  key={val.value} value={val.value} className={val.className}
+              onClick={val.onClick == true ? clickKey : null}>{val.keyName}</button>
+            )}
           </div>
-
         </div>
         <div id="chord_type">
           <section id="chord_text">
