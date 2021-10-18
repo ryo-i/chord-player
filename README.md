@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- コードタイプ変更枠の幅設定を変更 [#8](https://github.com/ryo-i/next-app-started/issues/8)
+- ページ下部の余白設定変更 [#8](https://github.com/ryo-i/next-app-started/issues/8)
 - Aboutの概要文を修正 [#10](https://github.com/ryo-i/next-app-started/issues/10)
 
 ## 詳細（ブログ）

@@ -13,7 +13,7 @@ const pageText = Data.main.text;
 
 const Main = styled.main`
   background: #333;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   max-width: 100%;
 `;
 
