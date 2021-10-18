@@ -73,7 +73,7 @@ const CoadPlayer = styled.div`
 
   #chord_types {
     margin: 0 auto ;
-    max-width: 400px;
+    max-width: 700px;
     border: 1px solid #eee;
     border-radius: 10px;
     padding: 10px 10px 0;
