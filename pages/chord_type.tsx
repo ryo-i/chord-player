@@ -63,24 +63,227 @@ function About() {
             <section>
                 <h2>根音（ルート）</h2>
                 <section>
-                    <h3>根音（ルート）</h3>
+                    <h3>根音（ルート）：(R)</h3>
                     <p>単音は和音ではないが、この単音を根音（ルート）としてその上に和音の構成音を重ねていくのでコードの原点（キー）になる。</p>
                     <figure>
                         <img src="img/chord_1_01.jpg" alt="ルート（単音）" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>パワーコード：5</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
                     </figure>
                 </section>
             </section>
             <section>
                 <h2>三和音（トライアド）</h2>
                 <p>説明説明説明説明説明説明説明説明</p>
+                <section>
+                    <h3>メジャー：(M)</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>マイナー：m</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>ディミニッシュ：dim</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>オーギュメント：aug</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>サスペンデッド4th：sus4</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
             </section>
             <section>
                 <h2>四和音（セブンスコード）</h2>
                 <p>説明説明説明説明説明説明説明説明</p>
+                <section>
+                    <h3>メジャーセブンス：M7</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>セブンス：7</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>マイナー・メジャー・セブンス：mM7</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>マイナー・セブンス：m7</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>マイナー・セブンス・フラット・ファイブ：m7(-5)</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>ディミニッシュ・セブンス：dim7</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>オーグメント・メジャー・セブンス：augM7</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>オーギュメント・セブンス：aug7</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>メジャー・セブンス・サスペンデッド4th：M7sus4</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>セブンス・サスペンデッド4th：7sus4</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>シックスス：6</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>マイナー・シックスス：m6</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
             </section>
             <section>
                 <h2>五和音（テンションコード）</h2>
                 <p>説明説明説明説明説明説明説明説明</p>
+                <section>
+                    <h3>メジャーナインス：M9</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>ナインス：9</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>セブンス・フラット・ナインス：7(-9)</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>セブンス・シャープ・ナインス：7(+9)</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>マイナー・セブンス・イレブンス：m7(11)</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>セブンス・シャープ・イレブンス：7(+11)</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>メジャー・セブンス・サーティーンズ：M7(13)</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>セブンス・サーティーンズ：7(13)</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>セブンス・フラット・サーティーンズ：7(-13)</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>シックス・ナインス：69</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
+                <section>
+                    <h3>マイナー・シックス・ナインス：m69</h3>
+                    <p>説明説明説明</p>
+                    <figure>
+                        <img src="img/.jpg" alt="コード名" />
+                    </figure>
+                </section>
             </section>
             <Profile />
         </Main>
