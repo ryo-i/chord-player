@@ -93,25 +93,6 @@ function About() {
                 </section>
             </section>
             <section>
-                <h2>コードの種類</h2>
-                <section>
-                    <h3>根音（ルート）</h3>
-                    <p>説明説明説明説明説明説明説明説明</p>
-                </section>
-                <section>
-                    <h3>三和音（トライアド）</h3>
-                    <p>説明説明説明説明説明説明説明説明</p>
-                </section>
-                <section>
-                    <h3>四和音（セブンスコード）</h3>
-                    <p>説明説明説明説明説明説明説明説明</p>
-                </section>
-                <section>
-                    <h3>五和音（テンションコード）</h3>
-                    <p>説明説明説明説明説明説明説明説明</p>
-                </section>
-            </section>
-            <section>
                 <h2>今後の課題</h2>
                 <p>ボイシングについて書く</p>
             </section>

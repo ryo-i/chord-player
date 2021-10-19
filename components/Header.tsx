@@ -38,6 +38,7 @@ function Header() {
           <span>MENU:</span>
           <Link href="/"><a>Home</a></Link>
           <Link href="/about"><a>About</a></Link>
+          <Link href="/chord_type"><a>Chord Type</a></Link>
         </nav>
       </div>
     </HeaderTag>
