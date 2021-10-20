@@ -125,7 +125,7 @@
             "chordKeys": [1,4,7,10]
           },
           {
-            "chordValue": "オーグメント・メジャー・セブンス",
+            "chordValue": "オーギュメント・メジャー・セブンス",
             "chordName": "augM7",
             "chordKeys": [1,5,9,12]
           },
@@ -229,7 +229,7 @@
            {"id": "chord_m7", "value": "マイナー・セブンス", "cohrdTypeName": "m7"},
            {"id": "chord_m7-5", "value": "マイナー・セブンス・フラット・ファイブ", "cohrdTypeName": "m7(-5)"},
            {"id": "chord_dim7", "value": "ディミニッシュ・セブンス", "cohrdTypeName": "dim7"},
-           {"id": "chord_augM7", "value": "オーグメント・メジャー・セブンス", "cohrdTypeName": "augM7"},
+           {"id": "chord_augM7", "value": "オーギュメント・メジャー・セブンス", "cohrdTypeName": "augM7"},
            {"id": "chord_aug7", "value": "オーギュメント・セブンス", "cohrdTypeName": "aug7"},
            {"id": "chord_M7sus4", "value": "メジャー・セブンス・サスペンデッド4th", "cohrdTypeName": "M7sus4"},
            {"id": "chord_7sus4", "value": "セブンス・サスペンデッド4th", "cohrdTypeName": "7sus4"},
