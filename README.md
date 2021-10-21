@@ -8,7 +8,7 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- 説明文追加（セブンスの途中まで）。 [#10](https://github.com/ryo-i/next-app-started/issues/10)
+- 説明文の書式を変更して揃える。 [#10](https://github.com/ryo-i/next-app-started/issues/10)
 - ページ下部の余白設定変更 [#8](https://github.com/ryo-i/next-app-started/issues/8)
 
 ## 詳細（ブログ）
