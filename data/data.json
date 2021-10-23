@@ -95,7 +95,7 @@
             "chordKeys": [1,6,8]
           },
           {
-            "chordValue": "メジャーセブンス",
+            "chordValue": "メジャー・セブンス",
             "chordName": "M7",
             "chordKeys": [1,5,8,12]
           },
@@ -155,7 +155,7 @@
             "chordKeys": [1,4,8,10]
           },
           {
-            "chordValue": "メジャーナインス",
+            "chordValue": "メジャー・ナインス",
             "chordName": "M9",
             "chordKeys": [1,5,8,12,15]
           },
@@ -223,7 +223,7 @@
           {"id": "chord_sus4", "value": "サスペンデッド4th", "cohrdTypeName": "sus4"}
         ],
         "seventh": [
-           {"id": "chord_M7", "value": "メジャーセブンス", "cohrdTypeName": "M7"},
+           {"id": "chord_M7", "value": "メジャー・セブンス", "cohrdTypeName": "M7"},
            {"id": "chord_7", "value": "セブンス", "cohrdTypeName": "7"},
            {"id": "chord_mM7", "value": "マイナー・メジャー・セブンス", "cohrdTypeName": "mM7"},
            {"id": "chord_m7", "value": "マイナー・セブンス", "cohrdTypeName": "m7"},
@@ -237,7 +237,7 @@
            {"id": "chord_m6", "value": "マイナー・シックスス", "cohrdTypeName": "m6"}
         ],
         "tension": [
-           {"id": "chord_M9", "value": "メジャーナインス", "cohrdTypeName": "M9"},
+           {"id": "chord_M9", "value": "メジャー・ナインス", "cohrdTypeName": "M9"},
            {"id": "chord_9", "value": "ナインス", "cohrdTypeName": "9"},
            {"id": "chord_7_f9", "value": "セブンス・フラット・ナインス", "cohrdTypeName": "7(-9)"},
            {"id": "chord_7_s9", "value": "セブンス・シャープ・ナインス", "cohrdTypeName": "7(+9)"},
