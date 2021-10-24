@@ -108,7 +108,7 @@ function About() {
                 </section>
                 <section>
                     <h3>ソースコード（GitHub）</h3>
-                    <p><a href="https://github.com/ryo-i/xxxxx">リポジトリ</a></p>
+                    <p><a href="https://github.com/ryo-i/chord-player">リポジトリ</a></p>
                 </section>
             </section>
             <Profile />
