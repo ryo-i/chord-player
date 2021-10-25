@@ -7,7 +7,7 @@ import Data from '../data/data.json';
 
 
 const headerTitle = Data.header.title;
-const pageTitle = 'コードタイプ';
+const pageTitle = 'コードタイプ一覧';
 const pageText = '本アプリで用意しているコードの種類を一覧にしています。';
 const headTitle = pageTitle + ' | ' + headerTitle;
 

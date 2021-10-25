@@ -160,7 +160,7 @@ function Inner() {
 
 
   // 鍵盤カレント
-  const currentKye = (currentChord): void => {
+  const currentKey = (currentChord): void => {
     const keyElements: HTMLCollection = keyElement.current.children;
     for (let i = 0; i < keyElements.length; i++) {
       const getKeyElement: HTMLButtonElement = keyElements[i] as HTMLButtonElement;
@@ -202,7 +202,7 @@ function Inner() {
     const getCurrentChord: string[] = getChord(KeyValue, chords);
     setChord(getCurrentChord);
     resetKey();
-    currentKye(getCurrentChord);
+    currentKey(getCurrentChord);
 
     const getChordsIntervalsArray: string[] = chordKeysText(getCurrentChord);
     const getRootkey: string = getChordsIntervalsArray[0];
@@ -245,7 +245,7 @@ function Inner() {
     const getRoot: string = String(chord[0]);
     const getCurrentChord: string[] = getChord(getRoot, currentChords);
     resetKey();
-    currentKye(getCurrentChord);
+    currentKey(getCurrentChord);
 
     const getChordsIntervalsArray: string[] = chordKeysText(getCurrentChord);
     const getChordsIntervals: string = getChordsIntervalsArray.join(', ');
