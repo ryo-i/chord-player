@@ -8,10 +8,8 @@ Tone.jsを使ったコードプレイヤー
 
 ## 進捗（コミット）
 
-- ブログ完成 [#11](https://github.com/ryo-i/chord-player/issues/11)
-- ブログのリンクを追加 [#10](https://github.com/ryo-i/chord-player/issues/10)
-- 関数名の間違いを修正 [#8](https://github.com/ryo-i/chord-player/issues/8)
+- リンク修正 [#8](https://github.com/ryo-i/chord-player/issues/8)
 
 ## 詳細（ブログ）
 
-※参考：[https://www.i-ryo.com/entry/2021/10/27/064429](【React & Tone.js】コードプレイヤーを作った（鍵盤でいろいろなコードを調べるアプリ）)
+※参考：[https://www.i-ryo.com/entry/2021/10/27/064429](【React ＆ Tone.js】コードプレイヤーを作った（鍵盤でいろいろなコードを調べるアプリ）)
