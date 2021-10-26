@@ -104,7 +104,7 @@ function About() {
                 <h2>詳細</h2>
                 <section>
                     <h3>ブログ</h3>
-                    <p><a href="https://www.i-ryo.com/entry/xxxx">タイトル - クモのようにコツコツと</a></p>
+                    <p><a href="https://www.i-ryo.com/entry/2021/10/27/064429">【React & Tone.js】コードプレイヤーを作った（鍵盤でいろいろなコードを調べるアプリ） - クモのようにコツコツと</a></p>
                 </section>
                 <section>
                     <h3>ソースコード（GitHub）</h3>
